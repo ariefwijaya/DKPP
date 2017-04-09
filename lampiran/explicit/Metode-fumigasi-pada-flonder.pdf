@@ -1,0 +1,501 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=Content-Type content="application/msword; charset=UTF-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Universal Post Manager by">
+<meta name=Originator content="ProfProjects.com">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>RU</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="--"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="true" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<title>Metode fumigasi pada flonder : Karya Tulis Ilmiah : http://judulkaryailmiah.com</title>
+<style>
+
+<!--
+
+div.Section1
+
+	{page:Section1;}
+
+
+
+-->
+</style>
+</head>
+<body link=blue vlink=purple style='tab-interval:35.4pt;text-align:left'>
+<div class=Section1 style="text-align:left">
+
+	
+		<p style="background:#F9F9F9">
+		<span style='font-size:9.0pt;color:#000000;'>
+		This page was exported from Karya Tulis Ilmiah 
+		[ </span>
+		<span style='font-size:9.0pt;color:#000000'>
+			<a href="http://judulkaryailmiah.com" target="_blank">
+				http://judulkaryailmiah.com
+			</a>
+		</span>
+		<span style='font-size:9.0pt;color:#000000;'> ]
+		<br>
+		Export date: Thu Mar 16 4:30:53 2017 / +0000  GMT 
+		<o:p></o:p>
+		</span>
+		</p>
+		
+		<h2 style="color:#000000;text-align:left">Metode fumigasi pada flonder</h2><br>
+	
+	  <p>
+	  <span style='font-size:10.5pt;color:#000000;'>
+		<br>
+		<p style="text-align: justify;"><div class="ead-preview"><div class="ead-document" style="position:relative;"><iframe src="//view.officeapps.live.com/op/embed.aspx?src=http%3A%2F%2Fkaryatulisilmiah.com%2Fwp-content%2Fuploads%2F2011%2F12%2Fflonder-KOKO.doc" style="width:100%; height:500px; border: none;"></iframe></div><p class="embed_download"><a href="http://karyatulisilmiah.com/wp-content/uploads/2011/12/flonder-KOKO.doc" download ><B>LINK DOWNLOAD</B> </a></p></div></p></p> <p>
+<p style="text-align: justify;">BAB I</p> <p>
+PENDAHULUAN</p></p> <p>
+<p style="text-align: justify;">1.1.  Latar Belakang</p> <p>
+Ketika manusia primitif beralih dari periode terbaru dan meramu ke periode bercocok tanam. Baru disadari perlunya penyimpanan bahan pangan untuk memenuhi kebutuhan bahan pangan dalam jangka panjang. Pada saat tersebut baru terpikir untuk membuat tempat penyimpanan berupa lumbung makanan yang biasanya terbuat dari tanah atau sejenisnya.</p> <p>
+Dalam kitab suci diceritakan dinegeri Mesir, Nabi Yusuf membangun lubung-lumbung gandum untuk persediaan paceklik selama tujuh tahun setelah tujuh tahun sebelumnya panen gandum melimpah ruah. Di Indonesia, kebiasaan menyimpan hasil panen sudah terjadi sejak lama dan terlukis dalam relief candi borobudur. Selain itu, berbagai bentuk dan konstruksi lumbung serta beragam cerita rakyat yang menyebut-nyebut tempat penyimpanan biji/benih menggambarkan betapa lekatnya hubungan penyimpanan hasil panen dengan peradaban manusia.</p></p> <p>
+<p style="text-align: justify;">Walaupun penyimpanan dimaksudkan untuk menghindari dari hama dan susut Didalam tempat penyimpanan tidak bisa dihindari, beragam factor menjadi penyebabnya antara lain serangga hama gudang, kotaminan cendawan, reaksi biologis biji-bijian, kerusakan fisik dan penanganan manusia. Saat ini, fungsi utama penyimpanan secara ekonomis adalah mengurangi fluktuasi pasar. Suplai berlebih berbagai komoditi umumnya hanya terjadi beberapa bulan selama setahun, sementara permintaan konsumen boleh dikatakan cenderung tetap sepanjang tahun .</p></p> <p>
+<p style="text-align: justify;">1.2.  Tujuan Percobaan</p> <p>
+Adapun tujuan dari percobaan praktikum adalah untuk mengetahui cara pembuatan flonder.</p></p> <p>
+</p> <p>
+<div style="text-align: justify;"></div></p> <p>
+<div style="text-align: justify;" align="center"></div></p> <p>
+<p style="text-align: justify;"><span style="font-family: 'Times New Roman','serif'; font-size: 12.0pt; mso-ansi-language: EN-US; mso-bidi-language: AR-SA; mso-fareast-font-family: 'Times New Roman'; mso-fareast-language: EN-US;"><br style="page-break-before: always;" clear="all" /> </span></p></p> <p>
+</p> <p>
+<div style="text-align: justify;" align="center"><b>BAB II</b></div></p> <p>
+<div style="text-align: justify;" align="center"><b>DASAR TEORI</b></div></p> <p>
+<div style="text-align: justify;" align="center"></div></p> <p>
+<div style="text-align: justify;" align="center"></div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;">Contoh system kemas hampa dikembangkan bulog. System kemas hampa dapat memperpanjang usia penyimpanan beras dan dapat mempertahankan mutu beras dan dapat mempertahankan mutu beras selama disimpan 2-3 tahun di gudang terbuka, disamping serangga hama dan jamur dapat dicegah tanpa menggunakan pestisida. Mesin kemas hampa terbagi menjadi 3 bagian utama yaitu : unit pengeringan, unit pencetak kemasan dan mesin pengemas. Pengemasan hampa mampu dilakukan dalam 20 ton/jam dengan satu kantong kemasan untuk satu ton beras. System tersebut juga dapat dipergunakan untuk mengemas produk bahan pangan lain (gula, kopi, jagung, kakao). Kelemahannya yaitu biaya per kilogramnya relative mahal dan tidak efesien apabila dibongkar pada masa simpan yang pendek (kurang dari 2 tahun), serta potensi adanya perubahan rasa bahan simpan. (Kartasaputera, 1990).</div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;"></div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;">Metode fumigasi yang paling umum diindonesia dan Negara berkembang lainya adalah fumigasi tumpukan bahan simpan yang dilakukan dengan sungkup plastik. Metode ini rawan kebocoran bila sungkup tidak menutup rapat atau bila digerigiti tikus. Apabila dilakukan dengan baik, teknologi yang relative sederhana ini cukup bagus hasilnya. Praktek fumigasi ini berhubungan dengan perdagangan internasional dan karan tina. Fumigasi kapal adalah fumigasi ruangan penyimpanan (palka) didalam kapal, baik berisi bahan ekspor atau impor maupun kosong. (Kartasapoetra, 1987).</div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;"></div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;">Fumigasi kontainer dilakukan dengan memasukan fumigant kedalam kontainer yang telah terisi komoditas. Metode yang diterapkan pada fumigasi kapal dan kontainer tidak jauh berbeda dengan fumigasi sebelumnya, prinsipnya kebocoran fumigant harus dihilangkan dan fumigant harus berada dalam dosis letal dalam waktu yang mencukupi, disamping factor keamanan kerja harus diperioritaskan. Pada prakteknya, fumigasi dapat dilakukan sebelum atau sesudah pengapalan, tergantung permintaan dan peraturan Negara pengimpor atau pengekspor. (Indera Sakti,2005).</div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: 45.0pt;">         Penyimpanan karung bertujuan untuk memudahkan identifikasi stock bahan pangan yang disimpan. Inspeksi dapat dilakukan setiap saat sehingga sanitasi dan control perubahan cuaca dapat lebih efektif. Flonder/hamparan/palet, sangat penting diperhatikan dalam proses penyimpanan bahan pangan di gudang. Fungsinya adalah untuk memperlancar sirkulasi udara, memudahkan proses pembersihan, menghindari kelembaban, dan mencegahnya bersarangnya hama tikus gudang. Flonder dapat dari bahan kayu, dengan bentuk yang beraneka ragam. (Ratna, 2005).</div></p> <p>
+<p style="text-align: justify;"><span style="font-family: 'Times New Roman','serif'; font-size: 12.0pt; mso-ansi-language: EN-US; mso-bidi-language: AR-SA; mso-fareast-font-family: 'Times New Roman'; mso-fareast-language: EN-US;"><br style="page-break-before: always;" clear="all" /> </span></p></p> <p>
+</p> <p>
+<div style="text-align: justify;" align="center"><b>BAB III</b></div></p> <p>
+<div style="text-align: justify;" align="center"><b>METODOLOGI PERCOBAAN</b></div></p> <p>
+<div style="text-align: justify;"></div></p> <p>
+<div style="text-align: justify;"></div></p> <p>
+<div style="line-height: 150%; margin-left: 21.0pt; mso-list: l3 level2 lfo2; tab-stops: list 21.0pt; text-align: justify; text-indent: -21.0pt;"><!-- [if !supportLists]--><b>3.1<span style="font: 7.0pt 'Times New Roman';">    </span></b><!--[endif]--><b>Alat Dan Bahan</b></div></p> <p>
+<div style="line-height: 150%; text-align: justify;"></div></p> <p>
+<table style="border-collapse: collapse; border: none; margin-left: 5.4pt; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-yfti-tbllook: 480;" border="1" cellspacing="0" cellpadding="0"></p> <p>
+<tbody></p> <p>
+<tr style="height: 17.55pt; mso-yfti-firstrow: yes; mso-yfti-irow: 0;"></p> <p>
+<td style="border: solid windowtext 1.0pt; height: 17.55pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 25.5pt;" valign="top" width="34"></p> <p>
+<div style="text-align: justify;"><b>No</b></div></td></p> <p>
+<td style="border-left: none; border: solid windowtext 1.0pt; height: 17.55pt; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 2.0in;" valign="top" width="192"></p> <p>
+<div style="text-align: justify;"><b>Nama Alat Dan Bahan</b></div></td></p> <p>
+<td style="border-left: none; border: solid windowtext 1.0pt; height: 17.55pt; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 55.5pt;" valign="top" width="74"></p> <p>
+<div style="text-align: justify;"><b>Jumlah</b></div></td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td style="border-top: none; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 25.5pt;" valign="top" width="34"></p> <p>
+<div style="text-align: justify;"><b>1</b></div></td></p> <p>
+<td style="border-bottom: solid windowtext 1.0pt; border-left: none; border-right: solid windowtext 1.0pt; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 2.0in;" valign="top" width="192"></p> <p>
+<div style="text-align: justify;">Paku 2 inch</div></td></p> <p>
+<td style="border-bottom: solid windowtext 1.0pt; border-left: none; border-right: solid windowtext 1.0pt; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 55.5pt;" valign="top" width="74"></p> <p>
+<div style="text-align: justify;">secukupnya</div></td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td style="border-top: none; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 25.5pt;" valign="top" width="34"></p> <p>
+<div style="text-align: justify;"><b>2</b></div></td></p> <p>
+<td style="border-bottom: solid windowtext 1.0pt; border-left: none; border-right: solid windowtext 1.0pt; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 2.0in;" valign="top" width="192"></p> <p>
+<div style="text-align: justify;">Kayu plat flafon</div></td></p> <p>
+<td style="border-bottom: solid windowtext 1.0pt; border-left: none; border-right: solid windowtext 1.0pt; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 55.5pt;" valign="top" width="74"></p> <p>
+<div style="text-align: justify;"> 2 m</div></td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td style="border-top: none; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 25.5pt;" valign="top" width="34"></p> <p>
+<div style="text-align: justify;"><b>3</b></div></td></p> <p>
+<td style="border-bottom: solid windowtext 1.0pt; border-left: none; border-right: solid windowtext 1.0pt; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 2.0in;" valign="top" width="192"></p> <p>
+<div style="text-align: justify;">Gergaji</div></td></p> <p>
+<td style="border-bottom: solid windowtext 1.0pt; border-left: none; border-right: solid windowtext 1.0pt; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 55.5pt;" valign="top" width="74"></p> <p>
+<div style="text-align: justify;">1 Buah</div></td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td style="border-top: none; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 25.5pt;" valign="top" width="34"></p> <p>
+<div style="text-align: justify;"><b>4</b></div></td></p> <p>
+<td style="border-bottom: solid windowtext 1.0pt; border-left: none; border-right: solid windowtext 1.0pt; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 2.0in;" valign="top" width="192"></p> <p>
+<div style="text-align: justify;">Palu</div></td></p> <p>
+<td style="border-bottom: solid windowtext 1.0pt; border-left: none; border-right: solid windowtext 1.0pt; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; width: 55.5pt;" valign="top" width="74"></p> <p>
+<div style="text-align: justify;">1 Buah</div></td></p> <p>
+</tr></p> <p>
+</tbody></p> <p>
+</table></p> <p>
+<div style="line-height: 150%; text-align: justify;"></div></p> <p>
+<div style="line-height: 150%; margin-left: 21.0pt; mso-list: l3 level2 lfo2; tab-stops: list 21.0pt; text-align: justify; text-indent: -21.0pt;"><!-- [if !supportLists]--><b>3.2<span style="font: 7.0pt 'Times New Roman';">    </span></b><!--[endif]--><b>Cara Kerja</b></div></p> <p>
+<div style="line-height: 150%; margin-left: 39.0pt; mso-list: l2 level1 lfo3; tab-stops: list 39.0pt; text-align: justify; text-indent: -.25in;"><!-- [if !supportLists]-->1.<span style="font: 7.0pt 'Times New Roman';">      </span><!--[endif]-->Buat flonder sederhana dengan pola yang telah ditentukan.</div></p> <p>
+<div style="line-height: 150%; margin-left: 39.0pt; mso-list: l2 level1 lfo3; tab-stops: list 39.0pt; text-align: justify; text-indent: -.25in;"><!-- [if !supportLists]-->2.<span style="font: 7.0pt 'Times New Roman';">      </span><!--[endif]-->Deskripsikan.</div></p> <p>
+<p style="text-align: justify;"><span style="font-family: 'Times New Roman','serif'; font-size: 12.0pt; mso-ansi-language: EN-US; mso-bidi-language: AR-SA; mso-fareast-font-family: 'Times New Roman'; mso-fareast-language: EN-US;"><br style="page-break-before: always;" clear="all" /> </span></p></p> <p>
+</p> <p>
+<div style="text-align: justify;" align="center"><b>BAB IV</b></div></p> <p>
+<div style="text-align: justify;" align="center"><b>PEMBAHASAN</b></div></p> <p>
+<div style="text-align: justify;" align="center"></div></p> <p>
+<div style="line-height: 150%; text-align: justify;"></div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;">Di sebut sistem tumpuk/staple karena berupa bangunan gudang yang berisi tumpukan karung bahan simpan yang disusun menurut kunci tertentu. Bila digunakan karung goni, tinggi tumpukan bisa sampai 25 karung, sedangkan dengan karung plastic hanya 15 – 22 karung. Mulai karung kesepuluh, tumpukan dibuat piramida. Gudang system ini diadopsi di Indonesia karena sesuai dengan iklim, praktik produksi dan distribusi pertanian serta relative murah biaya pembuatan operasionalnya. Secara umum strutur gudang harus menjamin bahan simpan terlindungi, aman dari gangguan serangga, burung, tikus, dan pathogen, memungkinkan aplikasi pestisida/fumigasi, mudah dibersihkan dan dioperasikan.</div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;"> Untuk lebih aman lagi dibuatkan flonder yaitu alas yang ditaruh dibawah tumpukan karung yang telah disusun dalam suatu gudang penyimpanan.Bahan yang dibawa adalah kayu plat flafon yang panjangnya 2 m dan dipotong sesuai kebutuhan dan ukuran karung tersebut.</div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;">Gudang sistem curah lebih cocok dibangun di Negara-negara yang menerapkan pertanian skala besar, serta kondisi iklim dan teknologinya memungkinkan menjaga kadar air biji tetap rendah. Biaya tenaga kerja yang tinggi juga menjadi pertimbangan dibangunnya gudang yang lebih efesien. Apabila dilakukan dengan baik, kehilangan hasil dalam system ini lebih rendah dibanding system stapel, sehingga dibeberapa Negara berkembang telah diuji coba penggunaannya. Sayangnya, uji coba semacam ini sering berujung pada kegagalan karena tridak sesuai Dalam teknik penyimpanan bukan hanya penyimpanan yang menjadi masalah atau hama gudang saja. Karena bangunan penyimpanan juga harus diperhatikan juga seperti Ventilasi udaranya, lingkunganya, dan suhu ruangannya.</div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .25in;"></div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .25in;"></div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .25in;"></div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .25in;"></div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .25in;"></div></p> <p>
+<div style="text-align: justify;" align="center"><b>PENUTUP</b></div></p> <p>
+<div style="text-align: justify;" align="center"></div></p> <p>
+<div style="text-align: justify;" align="center"></div></p> <p>
+<div style="line-height: 150%; text-align: justify;"><b>5.1 Kesimpulan</b></div></p> <p>
+<div style="line-height: 150%; text-align: justify;"><b>            </b>Dari sistim pembuatan flonder tersebut maka dapat ditarik kesimpulan sbb:</div></p> <p>
+<ol style="margin-top: 0in; text-align: justify;" start="1" type="1"></p> <p>
+ 	<li style="line-height: 150%; mso-list: l0 level1 lfo4; tab-stops: list .5in; text-align: justify;">sirkulasi udara pada flonder lebih merata dan dapat memudahkan mengidentivikasi hama gudang dengan mudah.</li></p> <p>
+ 	<li style="line-height: 150%; mso-list: l0 level1 lfo4; tab-stops: list .5in; text-align: justify;">pemasaran atau system pemakaian bahan pangan untuk dikosumsi menggunakan sistim <i>First In First Out (FIFO).</i></li></p> <p>
+ 	<li style="line-height: 150%; mso-list: l0 level1 lfo4; tab-stops: list .5in; text-align: justify;">penggunaan flonder sangat penting didalam penyimpanan terutama didalam gudang, karena flonder dapat mencegah dari kelembaban dan juga dapat memperkecil kerusakan yang disebabkan hama gudang.</li></p> <p>
+</ol></p> <p>
+<div style="line-height: 150%; text-align: justify;"></div></p> <p>
+<div style="line-height: 150%; text-align: justify;"><b>5.2 Saran</b></div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;">saya harap dalam melakukan peraktikum hendaknya asisten lab di perbanyak, dan kalau bisa penguasaan terhadap peraktikan harus lebih tegas lagi. Sekian dan terima kasih.</div></p> <p>
+<div style="line-height: 150%; text-align: justify; text-indent: .5in;"></p> <p>
+<p style="text-align: justify;"><strong>DAFTAR KEPUSTAKAAN</strong></p></p> <p>
+<p style="text-align: justify;"></p></p> <p>
+<p style="text-align: justify;">Kartasapoetra. 1990 . <strong><em>Teknologi Penanganan Pasca Panen</em></strong><em>.</em>Rineka Cipta, Jakarta.</p></p> <p>
+<p style="text-align: justify;">Kartasapoetra, A.G. Ir, 1987, <strong><u>Hama</u></strong><strong><u> tanaman Pangan dan Tanaman Keras,</u></strong> Diktat, 1986. 1987, PT  Bina Aksara Jakarta.</p></p> <p>
+<p style="text-align: justify;">Ratna, dkk.2005. <strong><em>penuntun penyimpanan dan penggudangan.</em></strong> Banda Aceh</p></p> <p>
+<p style="text-align: justify;">Sakti indera,2005. <strong><em>Penyimpanan Dan Penggudangan Dalam Teknologi Pasca Panen, </em></strong>Banda Aceh.</p></p> <p>
+&nbsp;</p> <p>
+</p> <p>
+</div>
+	  </span>
+	  </p>
+
+<p><o:p>&nbsp;</o:p></p>
+<p><o:p>&nbsp;</o:p></p>
+		  <p>
+		  <span style='font-size:10.0pt;color:#000000'> 
+		  
+		  </span>
+		  </p>
+<br/>
+		
+			  <p style="background:#F9F9F9">
+				  <span style='font-size:10.0pt;color:#000000;'>
+					Post date: 2011-12-05 20:01:00<br>Post date GMT: 2011-12-05 20:01:00<br>
+					Post modified date: 2016-05-21 12:38:53<br>
+		Post modified date GMT: 2016-05-21 12:38:53 
+					<o:p></o:p>
+				   </span>
+			  </p>
+		
+		<p style="background:#F9F9F9">
+			<span style='font-size:9.0pt;color:#000000;'>
+			Powered by [ Universal Post Manager ] plugin. MS Word saving format developed by gVectors Team
+			</span>
+			<span style='font-size:9.0pt;color:#000000'>
+			<a href="http://www.gvectors.com" target="_blank">
+			www.gVectors.com
+			</a>
+			</span>
+		</p>
+
+
+<p><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
