@@ -46,7 +46,7 @@
 
                                     ?>
                                   <div class="well">
-                                    <span class="mif-tag">&nbsp;<?php echo $nama;?></span></a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="delete_tags('<?=$g->id_tag;?>')" ><button style="border-radius:70%;height:auto;width:auto;"><span class="btn btn-danger"></span></button></a>
+                                    <span class="mif-tag">&nbsp;<?php echo $nama;?></span></a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="delete_tags('<?=$g->id_tag;?>')" ><button data-toggle="tooltip"  data-placement="right" title="Delete tag" class="btn btn-xs btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button></a>
                                   </div>
                                       <?php }?>
 
@@ -56,7 +56,7 @@
                                 </table>
                               
                               <br></br>
-                                  <form method="post" action="<?php echo base_url();?>web/tambah_tag_tacit" method="post" enctype="multipart/form-data">
+                                  <form method="post" action="<?php echo base_url('web/tambah_tag_tacit/'.$id_tacit);?>" enctype="multipart/form-data"> 
                               <div class="form-group">
                                           <label>Bagikan Kepada User</label>
                                           <select class="select2 full-size" name="tags[]" multiple="multiple" data-placeholder="Pilih User">
@@ -104,7 +104,26 @@
         </section><!-- /.content -->
 
         <!-- jQuery -->
-    
+  
+  <script type="text/javascript">
+      function delete_tags(tags_id)
+      {
+        var dataString = "id_tag=" + tags_id;
+
+        $.ajax({  
+            type: "POST",  
+            url: "<?php echo base_url('Web/Ajax_hapus_tags_tacit');?>",
+            data: dataString,
+            success: function(data) 
+            {
+                if(data == "deleted"){
+                  javascript:location.reload(true);
+                }
+            }
+        });
+
+      }
+  </script>
 
   <script src="<?php echo base_url();?>asset/jquery.min.js"></script>
   <script src="<?php echo base_url();?>asset/plugins/select2/select2.min.js" type="text/javascript"></script>

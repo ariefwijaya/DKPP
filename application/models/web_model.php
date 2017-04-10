@@ -129,6 +129,7 @@ public function get_all_explicit_user($id)
 		$this->db->join('pengguna p','tt.id_pengguna=p.id_pengguna','left');
 		$this->db->where('tt.id_tacit',$id);
 		$hasil = $this->db->get();
+
 		return $hasil;
 	}
 
@@ -319,6 +320,12 @@ public function get_all_explicit_user($id)
 		$q = $this->db->get();
 		return $q;
 	}	
+	function Ajax_hapus_tags_tacit($id_pengguna,$id)
+	{
+		$this->db->where('id_pengguna',$id_pengguna);
+		$this->db->where('id_tacit',$id);
+		$this->db->delete('id_pengguna');
+	}
 
 	function input_masalah_solusi($data)
 	{

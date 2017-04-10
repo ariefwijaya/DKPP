@@ -129,20 +129,21 @@ class Web extends CI_Controller {
 				echo "deleted";
 			}else{
 
-				echo "failed";
+				echo "failed"; 
 			}
 			
 	}
 
-	public function tag_masalah_solusi($id)
+	public function tag_masalah_solusi($id) 
 	{
-		$data['login']			= $this->session->userdata('login', true);
+		$data['login']			= $this->session->userdata('login', true); 
 		if($data['login']==false) redirect(base_url('web/login'));
 		
 
 		$data['judul']			= "Tag Masalah dan Solusi | KMS Dinas Ketahanan Pangan dan Peternakan Provinsi Sumsel";
 		$id_tacit				= $this->uri->segment(3);
 		$id_pengguna			= $this->session->userdata('id_pengguna');
+		$data['id_tacit'] = $id;
 		$data['tacit']	 		= $this->Web_model->tacit($id_tacit,$id_pengguna);
 		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id);
 		$data['list_tagged'] 	= $this->Web_model->get_all_tacit_taged_user($id);
@@ -156,16 +157,18 @@ class Web extends CI_Controller {
 		$data['content']		= 'tag_masalah_solusi';
 		$this->load->view('template',$data);
 	}
-	public function tambah_tag_tacit()
+	public function tambah_tag_tacit($id)
 	{
-		$data['login']			= $this->session->userdata('login', true);
+		$data['login']			= $this->session->userdata('login', true); 
 		if($data['login']==false) redirect(base_url('web/login'));
 
-			$id_tacit = $this->input->post('id_tacit');
+			//$data['tacit']		= $this->Web_model->tacit($id_tacit,$id_pengguna);
+			$id_tacit = $id;//$this->input->post('id_tacit');
+		
 
-					if($this->input->post('tag') !=''){
+					if($this->input->post('tags') !=''){
 							$last_id 	= $id_tacit;
-							$list_tag 	= $this->input->post('tag');
+							$list_tag 	= $this->input->post('tags');
 							$table1 	= "tag_tacit";
 
 							foreach ($list_tag as $key => $a) {
@@ -175,8 +178,8 @@ class Web extends CI_Controller {
 
 								$this->Web_model->insert($data1,$table1);
 							}
-						
-						$this->Web_model->get_checked_new_tags($id_pengguna);
+
+						$this->Web_model->input_tag_tacit($data1);
 						echo "<script>alert('Berhasil Membagikan Pengetahuan ini Kepada Teman Anda');</script>";
 						redirect(base_url('web/lihat_masalah_solusi'), 'refresh');				
 					}
