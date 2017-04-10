@@ -6,6 +6,8 @@
           </h1>
         </section>
 
+        <!-- Nyubo Nge Pull -->
+
         <!-- Main content -->
         <section class="content">
           <div class="row">
@@ -22,7 +24,7 @@
                                     <?php }else{?>
 
                                     <?php 
-                                          foreach ($list_untagged->result() as $g) {
+                                          foreach ($list_tagged->result() as $g) {
 
                                               switch ($g->hak_akses) {
                                                   case '1':
