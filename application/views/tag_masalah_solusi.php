@@ -1,23 +1,3 @@
-  <script type="text/javascript">
-
-    function delete_tags(tags_id)
-    {
-        var dataString = "id_tag=" + tags_id;
-
-        $.ajax({  
-            type: "POST",  
-            url: "<?php echo base_url('web/Ajax_hapus_tags_tacit');?>",  
-            data: dataString,
-            success: function(data)
-            {
-                if(data == "deleted"){
-                  javascript:location.reload(true);
-          }
-            }
-        });
-    }
-  </script>      
-
 
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -29,41 +9,42 @@
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <div class="col-xs-12">
-              <div class="box">
-                <div class="box-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                                   <tr>
-                                          <td style="text-transform:uppercase"> <b> Daftar User Yang Dibagikan </b></td>
-                                    <td>
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Daftar User yang Anda Bagikan</h3>
                                     <?php if(count($list_tagged->result()) == 0){?>
 
                                       <h4 align="center" style="color:red">Anda Belum Membagikan Pengetahuan Ini Kepada Siapapun</h4>
 
                                     <?php }else{?>
 
-                                      <?php 
+                                    <?php 
                                           foreach ($list_tagged->result() as $g) {
 
                                               switch ($g->hak_akses) {
-                                                  case 'anggotalumbung':
-                                                      $profil = mysql_query("SELECT * FROM anggotalumbung WHERE id_user='$g->id_user'");
+                                                  case '1':
+                                                  $data = mysql_query("SELECT * FROM pengguna WHERE id_pengguna='$g->id_pengguna'");
                                                   break;
-                                                  case 'kasubbid':
-                                                      $profil = mysql_query("SELECT * FROM kasubbid WHERE id_user='$g->id_user'");
+                                                  case '2':
+                                                  $data = mysql_query("SELECT * FROM pengguna WHERE id_pengguna='$g->id_pengguna'");
                                                   break;
-                                                  case 'tenagaahli':
-                                                      $profil = mysql_query("SELECT * FROM tenagaahli WHERE id_user='$g->id_user'");
+                                                  case '3':
+                                                  $data = mysql_query("SELECT * FROM pengguna WHERE id_pengguna='$g->id_pengguna'");
                                                   break;
-                                              }
+                                                  case '4':
+                                                  $data = mysql_query("SELECT * FROM pengguna WHERE id_pengguna='$g->id_pengguna'");
+                                                  break;
+                                                  }
                                                   $prf = mysql_fetch_array($profil);
 
                                                   $nama = $prf['nama'];
 
-                                      ?>
+                                    ?>
                                   <div class="well">
-                                    <span class="mif-tag">&nbsp;<?php echo $nama;?></span></a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="delete_tags('<?=$g->id_tag;?>')" ><button style="border-radius:70%;height:auto;width:auto;"><span class="fa fa-cancel"></span></button></a>
+                                    <span class="mif-tag">&nbsp;<?php echo $nama;?></span></a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="delete_tags('<?=$g->id_tag;?>')" ><button style="border-radius:70%;height:auto;width:auto;"><span class="btn btn-danger"></span></button></a>
                                   </div>
                                       <?php }?>
 
@@ -71,51 +52,59 @@
                                       </td>
                                     </tr>
                                 </table>
-                            
-                              <form method="post" action="<?=base_url('web/lihat_pengetahuan_tacit');?>">
-                                <input type="hidden" name="id_tacit" value="<?=$a->id_tacit;?>">
-                                <table>
-                                  
-                                   <tr>
-                                          <td style="text-transform:uppercase"> <b> Bagikan Kepada Teman Anda </b> <pre>*Ketik Nama Lengkap</pre></td>
-                                          <td style="padding:5px;width:100%">
-                                            <div style="width:100%" class="input-control full-size" data-role="select" data-multiple="true">
-                                                <select style="width:100%" multiple="multiple" class="full-size" name="tag[]">
+                              
+                              <br></br>
+                                  <form method="post" action="<?php echo base_url();?>web/tambah_tag_tacit" method="post" enctype="multipart/form-data">
+                              <div class="form-group">
+                                          <label>Bagikan Kepada User</label>
+                                          <select class="select2 full-size" name="tags[]" multiple="multiple" data-placeholder="Pilih User">
+                                          <?php
+                                                  $i=0; 
+                                                  foreach ($list_untagged->result() as $g) {
 
-                                                       <?php 
-                                                    foreach ($list_untagged->result() as $g) {
+                                                  switch ($g->hak_akses) {
+                                                  case '1':
+                                                      $data = mysql_query("SELECT * FROM pengguna WHERE id_pengguna='$g->id_pengguna'");
+                                                  break;
+                                                  case '2':
+                                                      $data = mysql_query("SELECT * FROM pengguna WHERE id_pengguna='$g->id_pengguna'");
+                                                  break;
+                                                  case '3':
+                                                      $data = mysql_query("SELECT * FROM pengguna WHERE id_pengguna='$g->id_pengguna'");
+                                                  break;
+                                                  case '4':
+                                                  $data = mysql_query("SELECT * FROM pengguna WHERE id_pengguna='$g->id_pengguna'");
+                                                  break;
+                                          }
+                                      
+                                              $dt = mysql_fetch_array($data);
 
-                                                      switch ($g->level) {
-                                                          case 'anggotalumbung':
-                                                            $profil = mysql_query("SELECT * FROM anggotalumbung WHERE id_user='$g->id_user'");
-                                                          break;
-                                                          case 'kasubbid':
-                                                            $profil = mysql_query("SELECT * FROM kasubbid WHERE id_user='$g->id_user'");
-                                                          break;
-                                                          case 'tenagaahli':
-                                                            $profil = mysql_query("SELECT * FROM tenagaahli WHERE id_user='$g->id_user'");
-                                                          break;
-                                                      }
-                                                      $prf = mysql_fetch_array($profil);
+                                              $nama = $dt['nama'];
 
-                                                      $nama = $prf['nama'];
+                                          ?>
+                                          <option value="<?=$g->id_pengguna;?>"><?=$nama;?></option>
 
-                                                    ?>
-
-                                                      <option value="<?=$g->id_user;?>"><?=$nama;?></option>
-
-                                                    <?php }?>
-
-                                                </select>
-                                            </div>
-                                          </td>
-                                     </tr>
-                                  <tr>                          
-                                    <td align="center" style="padding:5px" align="right" colspan="2"><button class="btn btn-primary">Submit Data</button></td>
-                                  </tr>
-                                </table>
-                              </form>
-                            </div>
-                          </center>
-                  </div>
+                                          <?php $i++; }?>
+                                          </select>
+                                          </div>
+                                          </div>
+                                      <div class="box-footer">
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                      </div>
+                                    </form>
+                                    </div>
               <!------ MODAL FOR EDIT TAG TACIT KNOWLEDGE ------------!-->
+              </div><!-- /.box -->
+
+            </div><!--/.col (left) -->
+            
+          </div>   <!-- /.row -->
+        </section><!-- /.content -->
+
+        <!-- jQuery -->
+    
+
+  <script src="<?php echo base_url();?>asset/jquery.min.js"></script>
+  <script src="<?php echo base_url();?>asset/plugins/select2/select2.min.js" type="text/javascript"></script>
+  <link href="<?php echo base_url();?>asset/plugins/select2/select2.min.css" rel="stylesheet"></script>
+

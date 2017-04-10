@@ -16,6 +16,13 @@ class Web_model extends CI_Model
 		return $affected_rows;
 
 	}
+	public function delete($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
+		
+		return $this->db->affected_rows();
+	}
+
 
 	function login($nip,$password)
 	{
@@ -38,6 +45,33 @@ class Web_model extends CI_Model
 	}
 
 
+public function get_all_explicit_user($id)
+	{
+		$this->db->select('*');
+		$this->db->from('pengetahuan_explicit e');
+		$this->db->join('pengguna p','e.id_pengguna=p.id_pengguna','left');
+		$this->db->join('kategori k','e.id_kategori=k.id_kategori','left');
+		$this->db->where('a.id_pengguna',$id);
+		$hasil=$this->db->get();
+
+		//echo $this->db->last_query();
+		return $hasil;
+
+	}
+
+	public function get_all_user_except_this_user($id)
+	{
+		$this->db->select('*');
+		$this->db->from('pengguna');
+		$this->db->where('hak_akses  != ','3');
+		$this->db->where('id_pengguna  != ',$id);
+		
+		$hasil=$this->db->get();
+
+		//echo $this->db->last_query();
+		return $hasil;
+	}
+
 	public function get_last_insert_id_tacit($where)
 	{
 		$this->db->select('*');
@@ -57,25 +91,23 @@ class Web_model extends CI_Model
 		$this->db->select('*');
 		$this->db->from('pengetahuan_explicit');
 		$this->db->where($where);		
-		$q=$this->db->get();
+		$hasil=$this->db->get();
 
 		//echo $this->db->last_query();
 		
-		foreach ($q->result() as $a) {
+		foreach ($hasil->result() as $a) {
 			return $a->id_explicit;
 		}
 	}
 
-
-	//METHOD TAG USER
 	public function get_jumlah_tag_tacit($id)
 	{
 		$this->db->select('*');
 		$this->db->from('tag_tacit');
 		$this->db->where('id_tacit',$id);
-		$q = $this->db->get();
+		$hasil = $this->db->get();
 
-		return $q->num_rows();
+		return $hasil->num_rows();
 
 	}
 
@@ -84,119 +116,105 @@ class Web_model extends CI_Model
 		$this->db->select('*');
 		$this->db->from('tag_explicit');
 		$this->db->where('id_explicit',$id);
-		$q = $this->db->get();
+		$hasil = $this->db->get();
 
-		return $q->num_rows();
-
-	}
-
-	function get_all_user_except_this_user($id)
-	{	
-
-		$this->db->select('*');
-		$this->db->from('pengguna');
-		$this->db->where('hak_akses !=','3');
-		$this->db->where('id_pengguna !=',$id);
-
-		$q=$this->db->get();
-		return $q;
+		return $hasil->num_rows();
 
 	}
 
 	public function get_all_tacit_taged_user($id)
 	{
-		$this->db->select('*,p.id_pengguna as id_pengguna');
+		$this->db->select('*,tt.id_pengguna as id_pengguna');
 		$this->db->from('tag_tacit tt');
-		$this->db->join('pengguna p','p.id_pengguna=tt.id_pengguna','left');
+		$this->db->join('pengguna p','tt.id_pengguna=p.id_pengguna','left');
 		$this->db->where('tt.id_tacit',$id);
-		$q = $this->db->get();
+		$hasil = $this->db->get();
 
-		return $q;
+		return $hasil;
 	}
 
 	public function get_all_explicit_taged_user($id)
 	{
-		$this->db->select('*,p.id_pengguna as id_pengguna');
+		$this->db->select('*,te.id_pengguna as id_pengguna');
 		$this->db->from('tag_explicit te');
-		$this->db->join('pengguna p','p.id_pengguna=te.id_pengguna','left');
+		$this->db->join('pengguna p','te.id_pengguna=p.id_pengguna','left');
 		$this->db->where('te.id_explicit',$id);
-		$q = $this->db->get();
+		$hasil = $this->db->get();
 
-		return $q;
+		return $hasil;
 	}
-
 
 	public function get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id)
 	{
-		$this->db->select('*,p.id_pengguna as id_pengguna');
+		$this->db->select('*,tt.id_pengguna as id_pengguna');
 		$this->db->from('tag_tacit tt');
-		$this->db->join('pengguna p','p.id_pengguna=tt.id_pengguna','left');
+		$this->db->join('pengguna p','tt.id_pengguna=p.id_pengguna','left');
 		$this->db->where('tt.id_tacit',$id);
-		$q = $this->db->get();
+		$hasil = $this->db->get();
 
-		if($q->num_rows()>0){
+		if($hasil->num_rows()>0){
 
 				$this->db->select('*');
 				$this->db->from('pengguna');
 				$this->db->where('hak_akses  != ','3');
 				$this->db->where('id_pengguna  != ',$id_pengguna);
 				
-				foreach ($q->result() as $a) {
+				foreach ($hasil->result() as $a) {
 					$this->db->where('id_pengguna  != ',$a->id_pengguna);
 				}
 
-				$q1=$this->db->get();
+				$hasil1=$this->db->get();
 
 				//echo $this->db->last_query();
-				return $q1;
+				return $hasil1;
 
 		}else{
 				$this->db->select('*');
 				$this->db->from('pengguna');
-				$this->db->where('hak_akses != ','3');
+				$this->db->where('hak_akses  != ','3');
 				$this->db->where('id_pengguna  != ',$id_pengguna);
 				
-				$q1=$this->db->get();
+				$hasil1=$this->db->get();
 
 				//echo $this->db->last_query();
-				return $q1;
+				return $hasil1;
 		}		
 	}
 
 	public function get_all_user_except_this_user_and_tagged_explicit_user($id_pengguna,$id)
 	{
-		$this->db->select('*,p.id_pengguna as id_pengguna');
+		$this->db->select('*,te.id_pengguna as id_pengguna');
 		$this->db->from('tag_explicit te');
-		$this->db->join('pengguna p','p.id_pengguna=te.id_pengguna','left');
+		$this->db->join('pengguna p','te.id_pengguna=p.id_pengguna','left');
 		$this->db->where('te.id_explicit',$id);
-		$q = $this->db->get();
+		$hasil = $this->db->get();
 
-		if($q->num_rows()>0){
+		if($hasil->num_rows()>0){
 
 				$this->db->select('*');
 				$this->db->from('pengguna');
-				$this->db->where('level  != ','3');
-				$this->db->where('id_pengguna  != ',$id_pengguna);
+				$this->db->where('hak_akses  != ','3');
+				$this->db->where('id_pengguna != ',$id_pengguna);
 				
-				foreach ($q->result() as $a) {
+				foreach ($hasil->result() as $a) {
 					$this->db->where('id_pengguna  != ',$a->id_pengguna);
 				}
 
-				$q1=$this->db->get();
+				$hasil1=$this->db->get();
 
 				//echo $this->db->last_query();
-				return $q1;
+				return $hasil1;
 
 		}else{
 				$this->db->select('*');
 				$this->db->from('pengguna');
-				$this->db->where('hak_akses != ','3');
+				$this->db->where('hak_akses  != ','3');
 				$this->db->where('id_pengguna  != ',$id_pengguna);
 				
-				$q1=$this->db->get();
+				$hasil1=$this->db->get();
 
 				//echo $this->db->last_query();
-				return $q1;
+				return $hasil1;
 		}		
 	}
 	public function get_checked_new_tags($id_pengguna)

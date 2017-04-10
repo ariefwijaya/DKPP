@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="<?php echo base_url();?>asset/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url();?>asset/font-awesome/css/font-awesome.min.css">
+    <!-- Metro Icons Font -->
+    <link rel="stylesheet" href="<?php echo base_url();?>asset/metro-icons/css/metro-icons.css" rel="stylesheet">
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?php echo base_url();?>asset/ionicons/css/ionicons.min.css">
 	<!-- DataTables -->

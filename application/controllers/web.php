@@ -134,23 +134,32 @@ class Web extends CI_Controller {
 			
 	}
 
-	public function tag_masalah_solusi()
+	public function tag_masalah_solusi($id)
 	{
 		$data['login']			= $this->session->userdata('login', true);
 		if($data['login']==false) redirect(base_url('web/login'));
+		
 
-		$data['judul']			= "Pengetahuan Tacit Yang Dibagikan | KMS Dinas Ketahanan Pangan dan Peternakan Provinsi Sumsel";
+		$data['judul']			= "Tag Masalah dan Solusi | KMS Dinas Ketahanan Pangan dan Peternakan Provinsi Sumsel";
+		$id_tacit				= $this->uri->segment(3);
 		$id_pengguna			= $this->session->userdata('id_pengguna');
-		$data['pengguna']		= $this->Web_model->data_pengguna($id_pengguna);
+		$data['tacit']	 		= $this->Web_model->tacit($id_tacit,$id_pengguna);
+		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id);
+		$data['list_tagged'] 	= $this->Web_model->get_all_tacit_taged_user($id_pengguna);
 		$data['notif']			= $this->Web_model->notif($id_pengguna);
 		$data['valid_t']		= $this->Web_model->valid_t($id_pengguna);
 		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
 		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
-		$data['tacit']	 		= $this->Web_model->tacit_tag($id_pengguna);
-		$data['explicit'] 		= $this->Web_model->tag_explicit($id_pengguna);
+		$data['pengguna']		= $this->Web_model->data_pengguna($id_pengguna);
+		$data['kategori']		= $this->Web_model->kategori();
 		$data['content']		= 'tag_masalah_solusi';
 		$this->load->view('template',$data);
+	}
+	public function tambah_tag_tacit()
+	{
+		$data['login']			= $this->session->userdata('login', true);
+		if($data['login']==false) redirect(base_url('web/login'));
 
 			$id_tacit = $this->input->post('id_tacit');
 
@@ -167,12 +176,8 @@ class Web extends CI_Controller {
 								$this->Web_model->insert($data1,$table1);
 							}
 						
-
-						echo "<script>alert('Berhasil Membagikan Pengetahuan Tacit ini Kepada Teman Anda');</script>";
-						redirect(base_url('web/lihat_masalah_solusi'), 'refresh');				
-					}else{
-
-						echo "<script>alert('Anda Tidak Memasukkan Nama Untuk Dibagikan Pengetahuan Ini!');</script>";
+						$this->Web_model->get_checked_new_tags($id_pengguna);
+						echo "<script>alert('Berhasil Membagikan Pengetahuan ini Kepada Teman Anda');</script>";
 						redirect(base_url('web/lihat_masalah_solusi'), 'refresh');				
 					}
 	}
@@ -220,7 +225,7 @@ class Web extends CI_Controller {
 		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
 		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
-		$data['tacit']	 		= $this->Web_model->tacit_tag($id_pengguna);
+		$data['tacit']	 		= $this->Web_model->get_all_tacit_tagged_user($id_pengguna);
 		$data['explicit'] 		= $this->Web_model->tag_explicit($id_pengguna);
 		$data['content']		= 'pengetahuan_dibagikan';
 		$this->load->view('template',$data);
@@ -241,7 +246,7 @@ class Web extends CI_Controller {
 					$data['nvalid_t']			= $this->Web_model->nvalid_t($id_pengguna);
 					$data['valid_e']			= $this->Web_model->valid_e($id_pengguna);
 					$data['nvalid_e']			= $this->Web_model->nvalid_e($id_pengguna);
-					$data['tacit']	 			= $this->Web_model->tacit_tag($id_pengguna);
+					$data['tacit']	 			= $this->Web_model->get_all_tacit_tagged_user($id_pengguna);
 					$data['explicit'] 			= $this->Web_model->tag_explicit($id_pengguna);
 					$data['list_shared_tacit']	= $this->Web_model->get_all_shared_tacit($id_pengguna);
 					$data['content']			= "pengetahuan_tacit_dibagikan";
@@ -264,7 +269,7 @@ class Web extends CI_Controller {
 					$data['nvalid_t']				= $this->Web_model->nvalid_t($id_pengguna);
 					$data['valid_e']				= $this->Web_model->valid_e($id_pengguna);
 					$data['nvalid_e']				= $this->Web_model->nvalid_e($id_pengguna);
-					$data['tacit']	 				= $this->Web_model->tacit_tag($id_pengguna);
+					$data['tacit']	 				= $this->Web_model->get_all_tacit_tagged_user($id_pengguna);
 					$data['explicit'] 				= $this->Web_model->tag_explicit($id_pengguna);
 					$data['list_shared_explicit']	= $this->Web_model->get_all_shared_explicit($id_pengguna);
 					$data['content']				= "pengetahuan_explicit_dibagikan";
@@ -316,7 +321,7 @@ class Web extends CI_Controller {
 		{	
 			$row = $this->Web_model->insert($data,$table);
 			if($row > 0){
-				if($this->input->post('tags') != 'NULL'){
+				if($this->input->post('tags') != ''){
 							$last_id 	= $this->Web_model->get_last_insert_id_tacit($data);
 							$list_tag 	= $this->input->post('tags');
 							$table1 	= "tag_tacit";
@@ -326,7 +331,7 @@ class Web extends CI_Controller {
 								$data1['id_pengguna']	= $a;
 								$data1['tgl_tag']	= date('Y-m-d');
 
-								$this->Web_model->insert($data,$table);
+								$this->Web_model->insert($data1,$table1);
 							}
 						}
 
@@ -400,12 +405,6 @@ class Web extends CI_Controller {
 		$id_tacit				= $this->uri->segment(3);
 		$this->Web_model->hapus_tacit($id_tacit);
 		redirect(base_url('web/lihat_masalah_solusi'), 'refresh');
-	}
-	function hapus_masalah_solusi1()
-	{
-		$id_tacit				= $this->uri->segment(3);
-		$this->Web_model->hapus_tacit($id_tacit);
-		redirect(base_url('web/validasi_masalah_solusi'), 'refresh');
 	}
 	public function input_dokumen()
 	{
@@ -692,6 +691,7 @@ class Web extends CI_Controller {
 		}
     }
 
+
 	function update_profil()
     {	
 		$data=array();
@@ -952,7 +952,7 @@ class Web extends CI_Controller {
 		$data['cek_user']		= $this->Web_model->cek_user($id,$id_pengguna);
 		$data['total_likes']	= $this->Web_model->total_like($id);
 		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id);
-		$data['list_tagged']	= $this->Web_model->get_all_tacit_taged_user($id);
+		$data['list_tagged']	= $this->Web_model->get_all_get_all_tacit_tagged_usered_user($id);
 		$data['content']		= 'detail_masalah_solusi';
 		$this->load->view('template',$data);
 	}
@@ -976,7 +976,7 @@ class Web extends CI_Controller {
 		$data['cek_user']		= $this->Web_model->cek_user($id,$id_pengguna);
 		$data['total_likes']	= $this->Web_model->total_like($id);
 		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id);
-		$data['list_tagged']	= $this->Web_model->get_all_tacit_taged_user($id);
+		$data['list_tagged']	= $this->Web_model->get_all_get_all_tacit_tagged_usered_user($id);
 		$data['content']		= 'cek_masalah';
 		$this->load->view('template',$data);
 	}
@@ -1125,7 +1125,7 @@ class Web extends CI_Controller {
 		$data['cek_user']		= $this->Web_model->cek_user_e($id,$id_pengguna);
 		$data['total_likes']	= $this->Web_model->total_like_e($id);
 		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id);
-		$data['list_tagged']	= $this->Web_model->get_all_tacit_taged_user($id);
+		$data['list_tagged']	= $this->Web_model->get_all_get_all_tacit_tagged_usered_user($id);
 		$data['content']		= 'detail_dokumen';
 		$this->load->view('template',$data);
 	}
@@ -1752,7 +1752,6 @@ class Web extends CI_Controller {
 		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
 		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
-		//$data['pengguna'] 		= $this->Web_model->edit_profil($id_pengguna);
 		$data['nama'] 			= $this->session->userdata('nama');
 		$data['jabatan']		= $this->session->userdata('nama_jabatan');
 		$data['jabatan']		= $this->Web_model->data_jabatan();
@@ -1773,7 +1772,6 @@ class Web extends CI_Controller {
 		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
 		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
-		$data['pengguna'] 		= $this->Web_model->edit_profil($id_pengguna);
 		$data['nama'] 			= $this->session->userdata('nama');
 		$data['jabatan']		= $this->session->userdata('nama_jabatan');
 		$data['jabatan']		= $this->Web_model->data_jabatan();
@@ -1948,7 +1946,7 @@ class Web extends CI_Controller {
 		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
 		
-		$tahun					= '2016';
+		$tahun					= '2017';
 		$data['t']				= $this->Web_model->bulanan1($tahun);
 		$data['e']				= $this->Web_model->bulanan2($tahun);
 		$data['lap_ps']			= $this->Web_model->laporan_problem_solving();
