@@ -179,9 +179,9 @@ class Web extends CI_Controller {
 								$this->Web_model->insert($data1,$table1);
 							}
 
-						$this->Web_model->input_tag_tacit($data1);
+						 //ini bukan rief? iyoo.. hapus be ini
 						echo "<script>alert('Berhasil Membagikan Pengetahuan ini Kepada Teman Anda');</script>";
-						redirect(base_url('web/lihat_masalah_solusi'), 'refresh');				
+						redirect(base_url('web/tag_masalah_solusi/'.$id), 'refresh');			//biar dio redirect di sinilah 	
 					}
 	}
 
@@ -976,8 +976,6 @@ class Web extends CI_Controller {
 		$data['komentar'] 		= $this->Web_model->komentar_tacit($id);
 		$data['cek_user']		= $this->Web_model->cek_user($id,$id_pengguna);
 		$data['total_likes']	= $this->Web_model->total_like($id);
-		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id);
-		$data['list_tagged']	= $this->Web_model->get_all_get_all_tacit_tagged_usered_user($id);
 		$data['content']		= 'cek_masalah';
 		$this->load->view('template',$data);
 	}
@@ -1125,8 +1123,6 @@ class Web extends CI_Controller {
 		$data['komentar'] 		= $this->Web_model->komentar_explicit($id);
 		$data['cek_user']		= $this->Web_model->cek_user_e($id,$id_pengguna);
 		$data['total_likes']	= $this->Web_model->total_like_e($id);
-		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id);
-		$data['list_tagged']	= $this->Web_model->get_all_get_all_tacit_tagged_usered_user($id);
 		$data['content']		= 'detail_dokumen';
 		$this->load->view('template',$data);
 	}
