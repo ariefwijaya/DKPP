@@ -26,7 +26,7 @@ class Web extends CI_Controller {
 		$data['disukai_t']		= $this->Web_model->disukai_t($id_pengguna);
 		$data['disukai_e']		= $this->Web_model->disukai_e($id_pengguna);
 		$data['reward']			= $this->Web_model->total_reward($id_pengguna);
-		$tahun					= '2016';
+		$tahun					= '2017';
 		$data['tc']				= $this->Web_model->bulan_t($tahun,$id_pengguna);
 		$data['ex']				= $this->Web_model->bulan_e($tahun,$id_pengguna);
 		$data['content']		= 'home';
@@ -1752,7 +1752,7 @@ class Web extends CI_Controller {
 		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
 		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
-		$data['pengguna'] 		= $this->Web_model->edit_profil($id_pengguna);
+		//$data['pengguna'] 		= $this->Web_model->edit_profil($id_pengguna);
 		$data['nama'] 			= $this->session->userdata('nama');
 		$data['jabatan']		= $this->session->userdata('nama_jabatan');
 		$data['jabatan']		= $this->Web_model->data_jabatan();
