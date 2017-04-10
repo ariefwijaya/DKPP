@@ -129,7 +129,6 @@ public function get_all_explicit_user($id)
 		$this->db->join('pengguna p','tt.id_pengguna=p.id_pengguna','left');
 		$this->db->where('tt.id_tacit',$id);
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 

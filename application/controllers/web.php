@@ -145,7 +145,7 @@ class Web extends CI_Controller {
 		$id_pengguna			= $this->session->userdata('id_pengguna');
 		$data['tacit']	 		= $this->Web_model->tacit($id_tacit,$id_pengguna);
 		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id);
-		$data['list_tagged'] 	= $this->Web_model->get_all_tacit_taged_user($id_pengguna);
+		$data['list_tagged'] 	= $this->Web_model->get_all_tacit_taged_user($id);
 		$data['notif']			= $this->Web_model->notif($id_pengguna);
 		$data['valid_t']		= $this->Web_model->valid_t($id_pengguna);
 		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
@@ -951,8 +951,6 @@ class Web extends CI_Controller {
 		$data['komentar'] 		= $this->Web_model->komentar_tacit($id);
 		$data['cek_user']		= $this->Web_model->cek_user($id,$id_pengguna);
 		$data['total_likes']	= $this->Web_model->total_like($id);
-		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_tacit_user($id_pengguna,$id);
-		$data['list_tagged']	= $this->Web_model->get_all_get_all_tacit_tagged_usered_user($id);
 		$data['content']		= 'detail_masalah_solusi';
 		$this->load->view('template',$data);
 	}

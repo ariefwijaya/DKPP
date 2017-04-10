@@ -40,7 +40,7 @@
                                                   $data = mysql_query("SELECT * FROM pengguna WHERE id_pengguna='$g->id_pengguna'");
                                                   break;
                                                   }
-                                                  $prf = mysql_fetch_array($profil);
+                                                  $prf = mysql_fetch_array($data);
 
                                                   $nama = $prf['nama'];
 

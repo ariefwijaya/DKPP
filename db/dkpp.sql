@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2017 at 04:35 PM
+-- Generation Time: Apr 10, 2017 at 05:28 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -414,7 +414,7 @@ CREATE TABLE IF NOT EXISTS `notifikasi` (
   `kategori` varchar(20) NOT NULL,
   `tgl_notif` varchar(30) NOT NULL,
   `status` varchar(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notifikasi`
@@ -425,7 +425,8 @@ INSERT INTO `notifikasi` (`id_notifikasi`, `id_pengguna`, `id_penerima`, `id_pos
 (2, 1, 1, 11, 'v_explicit', '2017-04-09 13:00:45', 'Y'),
 (3, 0, 1, 15, 'v_explicit', '2017-04-09 13:03:40', 'N'),
 (4, 9, 9, 27, 'tacit', '2017-04-09 13:19:23', 'N'),
-(5, 9, 1, 12, 'tacit', '2017-04-09 13:19:47', 'N');
+(5, 9, 1, 12, 'tacit', '2017-04-09 13:19:47', 'N'),
+(6, 0, 9, 69, 'v_tacit', '2017-04-10 20:03:17', 'Y');
 
 -- --------------------------------------------------------
 
@@ -479,7 +480,7 @@ CREATE TABLE IF NOT EXISTS `pengetahuan_tacit` (
   `like` int(5) NOT NULL,
   `bulan` varchar(2) NOT NULL,
   `tahun` int(4) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pengetahuan_tacit`
@@ -500,7 +501,9 @@ INSERT INTO `pengetahuan_tacit` (`id_tacit`, `id_pengguna`, `id_kategori`, `judu
 (64, 9, 4, 'tes', '<p>iauagu</p>\r\n', '<p>ugugua</p>\r\n', '2017-04-09 20:12:27', 0, 0, '04', 2017),
 (65, 9, 3, 'tes2', '<p>guggj</p>\r\n', '<p>guyguyfy</p>\r\n', '2017-04-09 20:16:00', 0, 0, '04', 2017),
 (66, 9, 3, 'tes2', '<p>guggj</p>\r\n', '<p>guyguyfy</p>\r\n', '2017-04-09 20:16:00', 0, 0, '04', 2017),
-(67, 9, 3, 'tes2', '<p>guggj</p>\r\n', '<p>guyguyfy</p>\r\n', '2017-04-09 20:16:00', 0, 0, '04', 2017);
+(67, 9, 3, 'tes2', '<p>guggj</p>\r\n', '<p>guyguyfy</p>\r\n', '2017-04-09 20:16:00', 0, 0, '04', 2017),
+(68, 9, 1, 'nyubo1', '<p>cubo cubo cubo</p>\r\n', '<p>123</p>\r\n', '2017-04-09 22:26:12', 0, 0, '04', 2017),
+(69, 9, 13, 'nyubo2', '<p>nyubo2<br />\r\n&nbsp;</p>\r\n', '<p>nyubo2</p>\r\n', '2017-04-10 19:45:06', 1, 0, '04', 2017);
 
 -- --------------------------------------------------------
 
@@ -529,7 +532,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 INSERT INTO `pengguna` (`id_pengguna`, `nip`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `id_jabatan`, `hak_akses`, `userfile`, `password`, `poin`) VALUES
 (1, '040668', 'Fakhri Fajrulfalah', 'Laki-laki', 'Palembang', '1994-06-05', 2, 2, 'fakhri.jpg', 'a0bae51a854b72338f3dc0fac5324934', 130),
 (8, '931164', 'Suryono', 'Laki-laki', 'Bandung', '1989-06-09', 3, 3, 'no_photo.jpg', 'fc43884b70bec84572527b64c85993b0', 40),
-(9, '080408', 'Luthfi Hardianto', 'Laki-laki', 'Palembang', '1980-05-07', 1, 1, 'no_photo.jpg', 'e2be1a765190b65b15e2054be34c0db8', 60),
+(9, '080408', 'Luthfi Hardianto', 'Laki-laki', 'Palembang', '1980-05-07', 1, 1, 'no_photo.jpg', 'e2be1a765190b65b15e2054be34c0db8', 70),
 (10, '130451', 'Kurniawan', 'Laki-laki', 'Palembang', '1977-05-09', 4, 4, 'no_photo.jpg', 'cf463c9033e2a7c8513084cc565dc137', 10),
 (11, '90828', 'Choirunnisa Qonitah', 'Perempuan', 'Palembang', '2017-04-01', 4, 4, 'no_photo.jpg', 'c1cb86799840c59165637f847c17cc32', 0),
 (12, '011095', 'Choirunnisa Muthi''ah', 'Perempuan', 'Palembang', '2017-04-01', 2, 2, 'no_photo.jpg', 'f24713a1dc64ecc5505b49e6b7b91f15', 10);
@@ -586,7 +589,7 @@ CREATE TABLE IF NOT EXISTS `riwayat` (
   `id_solusi` varchar(5) NOT NULL,
   `nama_solusi` text NOT NULL,
   `solusi_masalah` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -645,7 +648,15 @@ CREATE TABLE IF NOT EXISTS `tag_tacit` (
   `id_pengguna` int(5) NOT NULL,
   `tgl_tag` varchar(30) NOT NULL,
   `status` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tag_tacit`
+--
+
+INSERT INTO `tag_tacit` (`id_tag`, `id_tacit`, `id_pengguna`, `tgl_tag`, `status`) VALUES
+(4, 69, 10, '2017-04-10', NULL),
+(5, 69, 11, '2017-04-10', NULL);
 
 -- --------------------------------------------------------
 
@@ -869,7 +880,7 @@ MODIFY `id_lumbung` int(5) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `pengetahuan_explicit`
 --
@@ -879,7 +890,7 @@ MODIFY `id_explicit` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 -- AUTO_INCREMENT for table `pengetahuan_tacit`
 --
 ALTER TABLE `pengetahuan_tacit`
-MODIFY `id_tacit` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=68;
+MODIFY `id_tacit` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=70;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
@@ -899,7 +910,7 @@ MODIFY `id_reward` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `riwayat`
 --
 ALTER TABLE `riwayat`
-MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tag_explicit`
 --
@@ -909,7 +920,7 @@ MODIFY `id_tag` int(5) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `tag_tacit`
 --
 ALTER TABLE `tag_tacit`
-MODIFY `id_tag` int(5) NOT NULL AUTO_INCREMENT;
+MODIFY `id_tag` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tmp_gejala`
 --
