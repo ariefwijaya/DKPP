@@ -22,7 +22,7 @@
                                     <?php }else{?>
 
                                     <?php 
-                                          foreach ($list_tagged->result() as $g) {
+                                          foreach ($list_untagged->result() as $g) {
 
                                               switch ($g->hak_akses) {
                                                   case '1':
