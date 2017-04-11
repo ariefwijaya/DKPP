@@ -427,33 +427,6 @@ public function get_all_explicit_user($id)
 		$q= $this->db->insert('kamus_istilah', $data);
 		return $q;
 	}
-	function kamus_istilah()
-	{
-		$this->db->select('*');
-		$this->db->from('kamus_istilah');  
-		$this->db->order_by('id_istilah', 'ASC'); 
-		$q = $this->db->get();
-		return $q;
-	}
-	function kamus($id)
-	{
-		$this->db->select('*');
-		$this->db->from('kamus_istilah');
-		$this->db->where('id_istilah', $id);
-		$this->db->order_by('id_istilah', 'ASC'); 
-		$q = $this->db->get();
-		return $q;
-	}
-	function update_kamus($data,$id)
-	{
-		$this->db->where('id_istilah', $id);
-		$this->db->update('kamus_istilah', $data);
-	}
-	function hapus_kamus($id_istilah)
-	{
-		$this->db->where('id_istilah',$id_istilah);
-		$this->db->delete('kamus_istilah');
-	}
 	function data_jabatan()
 	{
 		$this->db->select('*');
@@ -557,6 +530,24 @@ public function get_all_explicit_user($id)
 		$this->db->where('e.id_explicit', $id);
 		$q = $this->db->get();
 		return $q;
+	}
+	function input_revisi_pakar_t($r)
+	{
+		$q= $this->db->insert('revise_tacit', $r);
+		return $q;
+	}
+	function revisi_pakar_t()
+	{
+		$this->db->select('*');
+		$this->db->from('revise_tacit');
+		$this->db->order_by('id_revise','DESC');
+		$q = $this->db->get();
+		return $q;
+	}
+	function hapus_revisi_pakar_t($id)
+	{
+		$this->db->where('id_tacit',$id);
+		$this->db->delete('revise_tacit');
 	}
 	function kode_gejala()
 	{

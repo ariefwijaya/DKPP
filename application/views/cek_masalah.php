@@ -101,9 +101,45 @@
 								</div><!-- /.box -->
 							</div>
 							<?php if($data['validasi_tacit']=='0'){?>
-							<a onClick="return confirmSubmit()" href="<?php echo base_url('web/validasi_tacit');?>/<?php echo $data['id_tacit'];?>/<?php echo $data['id_pengguna'];?>"><button class="btn  btn-success btn-sm"><i class="fa fa-check"> Validasi</i></button></a>
-							<?php }
-							else {?>
+							<a onClick="return confirmSubmit()" href="<?php echo base_url('web/validasi_tacit');?>/<?php echo $data['id_tacit'];?>/<?php echo $data['id_pengguna'];?>"><button class="btn  btn-success btn-sm"><i class="fa fa-check"> Validasi</i></button>
+							<div class="box-footer">
+							<!-- revisi pakar --->
+							<script> 
+							$(document).ready(function(){
+								$("#flip").click(function(){
+									$("#panel").slideDown("medium");
+								});
+							});
+							</script>
+							 
+							<style> 
+							#panel {
+								display: none;
+							}
+							</style>
+							
+							<div class="box box-solid box-warning">
+							<div id="flip" class="box-header">
+								<h3 class="box-title">* Klik disini apabila terdapat kesalahan dalam content masalah dan solusi</h3>
+							</div><!-- /.box-header -->
+							<div id="panel" class="box-body">
+							Mohon berikan note revisi
+							<form action="<?php echo base_url();?>web/revisi_tacit" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="id_tacit" value="<?php echo $data['id_tacit'];?>"/>
+								<textarea name="note" class="form-control" required></textarea>
+								<input type="hidden" name="id_pengguna" value="<?php echo $user['id_pengguna'];?>"/>
+								<button type="submit" class="btn btn-primary">Revisi Masalah dan Solusi</button>
+							</form>
+							</div>
+							</div>
+							<!-- .revisi pakar --->
+							</div>							
+						</div><!-- /.box -->
+							<?php } 
+							else if($data['validasi_tacit']=='2') {?>
+									<h3>"Revision is on Review by The Author"</h3>
+							<?php } 
+							else{?> 
 							<a onClick="return confirmSubmit()" href="<?php echo base_url('web/batal_validasi_tacit');?>/<?php echo $data['id_tacit'];?>/<?php echo $data['id_pengguna'];?>"><button class="btn  btn-danger btn-sm"><i class="fa fa-error"> Batalkan Validasi</i></button></a>
 							<?php } ?>
 							</div><!-- /.box-body -->

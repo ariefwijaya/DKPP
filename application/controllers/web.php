@@ -845,6 +845,23 @@ class Web extends CI_Controller {
 		redirect(base_url('web/validasi_masalah_solusi'), 'refresh');
 	}
 
+	function validasi_revisi_tacit()
+	{
+		$id						= $this->uri->segment(3);
+		$id_pengguna			= $this->uri->segment(4);
+		$data['validasi_tacit']	= "2";
+		$this->Web_model->tacit_validasi($data,$id);
+		$lihat_poin				= $this->Web_model->lihat_poin($id_pengguna);
+		foreach($lihat_poin->result_array() as $l){
+			$poin				= $l['poin'];
+		}
+		$p['poin']				= $poin+0;
+		$this->Web_model->update_poin($p,$id_pengguna);
+		$s['kategori']					= "v_tacit";
+		$this->Web_model->input_notifikasi($s);
+		redirect(base_url('web/validasi_masalah_solusi'), 'refresh');
+	}
+
 	function batal_validasi_tacit()
 	{
 		$id						= $this->uri->segment(3);
@@ -979,6 +996,20 @@ class Web extends CI_Controller {
 		$data['content']		= 'cek_masalah';
 		$this->load->view('template',$data);
 	}
+	function revisi_tacit()
+    {	
+		$data=array();
+		$id						= $this->input->post('id_tacit');
+		$data 					= $this->input->post('note');
+		
+		$r['id_tacit']			= $this->input->post('id_tacit');
+		$r['note']				= $this->input->post('note');
+		$r['id_pengguna']		= $this->input->post('id_pengguna');
+		$this->Web_model->input_revisi_pakar_t($r);
+		?>
+		<script>window.location="cek_masalah/<?php echo $id;?>";</script>;
+		<?php
+    }
 	public function like()
 	{
 		$id					= $this->uri->segment(3);
@@ -2076,6 +2107,8 @@ class Web extends CI_Controller {
 			} 
 		}
 	}
+
+
 	
 	public function search()
 	{
@@ -2249,5 +2282,4 @@ class Web extends CI_Controller {
 		$this->Web_model->hapus_revisi_pengguna($id);
 		redirect(base_url('web/revise'), 'refresh');
 	}
-	
 }
