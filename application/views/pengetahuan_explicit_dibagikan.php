@@ -1,21 +1,13 @@
 <style>
 .timeline:before{content:'';position:absolute;top:0;bottom:0;width:4px;background:none;left:31px;margin:0;border-radius:2px}
 </style>
-        <!-- Content Header (Page header) -->
+<?php foreach($explicit->result_array() as $data1)?>
+<!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
             Data Dokumen Yang Dibagikan Kepada Anda
           </h1>
         </section>
-
-        <?php if(count($list_shared_explicit->result()) == 0){?>
-
-		<center>
-		<br>
-			<h1 style="color:red"> <span style="margin-bottom:20px" class="mif-warning"></span> Maaf, Belum Ada Data Pengetahuan Explicit Yang Dibagikan Kepada Anda !</h1>
-		</center>	
-	
-		<?php }else{ ?>	
 
         <!-- Main content -->
         <section class="content">
@@ -23,7 +15,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-body">
-				<table id="example2" class="table">
+                  <table id="example2" class="table">
                     <thead>
                       <tr>
                         <th>Judul Masalah</th>
@@ -79,7 +71,6 @@
         </section><!-- /.content -->
 <!-- jQuery -->
     
-    <script src="<?php echo base_url();?>asset/jquery.min.js"></script>
 	<script src="<?php echo base_url();?>asset/jquery.timeago.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function() 
@@ -87,5 +78,3 @@
 				jQuery("font.timeago").timeago();
 			});
 	</script>
-
-	<?php } ?>

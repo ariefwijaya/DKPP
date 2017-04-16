@@ -23,7 +23,7 @@
 	<!-- select2-->
 	<link rel="stylesheet" href="<?php echo base_url();?>asset/plugins/select2/select2.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+         folder instead of downloading all of them to reduce the load. --> 
     <link rel="stylesheet" href="<?php echo base_url();?>asset/dist/css/skins/_all-skins.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="<?php echo base_url();?>asset/plugins/iCheck/flat/blue.css">
@@ -232,6 +232,16 @@ $(document).ready(function(){
                           <i class="fa fa-gift text-yellow"></i> Anda mendapatkan reward<br/><font class='timeago' style="font-size:10px" title="<?php echo $notif['tgl_notif'];?>"><?php echo $notif['tgl_notif'];?></font><br/>
                         </a>
 					  <?php } ?>
+            <?php if($notif['kategori']=='r_tacit'){?>
+                        <a href="<?php echo base_url('web/detail_masalah_solusi/');?>/<?php echo $notif['id_posting'];?>" style="height:auto;">
+                            <i class="fa fa-certificate text-aqua"></i>Masalah & Solusi perlu direvisi<br/><font class='timeago' tyle="font-size:10px" title="<?php echo $notif['tgl_notif'];?>"><?php echo $notif['tgl_notif'];?></font><br/>
+                        </a> 
+            <?php } ?>
+            <?php if($notif['kategori']=='r_explicit'){?>
+                        <a href="<?php echo base_url('web/detail_dokumen/');?>/<?php echo $notif['id_posting'];?>" style="height:auto;">
+                            <i class="fa fa-certificate text-aqua"></i>Dokumen perlu direvisi<br/><font class='timeago' tyle="font-size:10px" title="<?php echo $notif['tgl_notif'];?>"><?php echo $notif['tgl_notif'];?></font><br/>
+                        </a> 
+            <?php } ?>
                       </li>
                     <?php } ?>
                     </ul>
@@ -635,6 +645,7 @@ $(document).ready(function(){
                 <li><a href="<?php echo base_url('web/data_bagian_lumbung');?>"><i class="fa fa-circle-o"></i>Data Bagian Lumbung</a></li>
                 <li><a href="<?php echo base_url('web/data_gejala');?>"><i class="fa fa-circle-o"></i>Data Gejala</a></li>
                 <li><a href="<?php echo base_url('web/data_kasus');?>"><i class="fa fa-circle-o"></i>Data Kasus</a></li>
+                <li><a href="<?php echo base_url('web/lihat_request_gejala');?>"><i class="fa fa-circle-o"></i>Data Request Gejala</a></li>
                 <li><a href="<?php echo base_url('web/revise');?>/"><i class="fa fa-circle-o"></i>Data Revise<small class="label pull-right bg-red" id="revisi1"></small></a></li>
               </ul>
             </li>

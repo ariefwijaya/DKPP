@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2017 at 05:28 PM
+-- Generation Time: Apr 16, 2017 at 09:30 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -91,7 +91,8 @@ INSERT INTO `gejala` (`id_gejala`, `nama_gejala`, `bobot_gejala`, `urut`, `id_ba
 ('G019', 'Waktu penyosohan yang lama hingga melebihi batas prosedur', 5, 19, 'B003'),
 ('G020', 'Kemasukan benda asing pada RMU', 1, 20, 'B003'),
 ('G021', 'Kuantitas beras menurun', 5, 21, 'B001'),
-('G022', 'Kadar air pada beras tidak merata', 3, 22, 'B001');
+('G022', 'Kadar air pada beras tidak merata', 3, 22, 'B001'),
+('G023', 'Beras berlubang', 5, 23, 'B004');
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `hasil` (
   `jumlah_fitur` int(11) NOT NULL,
   `selisih` int(11) NOT NULL,
   `id_pengguna` int(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=822 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=896 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hasil`
@@ -135,28 +136,6 @@ INSERT INTO `hasil` (`id_hasil`, `id_solusi`, `nilai`, `jumlah_gejala`, `jumlah_
 (670, 'S021', '0.75', 3, 4, 1, 1),
 (671, 'S022', '0.125', 2, 4, 2, 1),
 (672, 'S023', '0.125', 3, 4, 1, 1),
-(695, 'S001', '0', 1, 2, 1, 10),
-(696, 'S002', '0', 1, 2, 1, 10),
-(697, 'S003', '0', 1, 2, 1, 10),
-(698, 'S004', '0', 1, 2, 1, 10),
-(699, 'S005', '0', 1, 2, 1, 10),
-(700, 'S006', '0', 6, 2, 4, 10),
-(701, 'S007', '0', 4, 2, 2, 10),
-(702, 'S008', '1', 6, 2, 4, 10),
-(703, 'S009', '0', 4, 2, 2, 10),
-(704, 'S010', '0', 4, 2, 2, 10),
-(705, 'S011', '0', 4, 2, 2, 10),
-(706, 'S012', '0', 5, 2, 3, 10),
-(707, 'S013', '1', 5, 2, 3, 10),
-(708, 'S014', '1', 9, 2, 7, 10),
-(709, 'S015', '0', 4, 2, 2, 10),
-(710, 'S016', '0', 1, 2, 1, 10),
-(711, 'S017', '0', 1, 2, 1, 10),
-(712, 'S019', '0', 1, 2, 1, 10),
-(713, 'S021', '1', 3, 2, 1, 10),
-(714, 'S022', '1', 2, 2, 0, 10),
-(715, 'S023', '1', 3, 2, 1, 10),
-(716, 'S024', '0.25', 4, 2, 2, 10),
 (717, 'S001', '0', 1, 3, 2, 12),
 (718, 'S002', '0', 1, 3, 2, 12),
 (719, 'S003', '0', 1, 3, 2, 12),
@@ -179,15 +158,21 @@ INSERT INTO `hasil` (`id_hasil`, `id_solusi`, `nilai`, `jumlah_gejala`, `jumlah_
 (736, 'S022', '0.090', 2, 3, 1, 12),
 (737, 'S023', '0.090', 3, 3, 0, 12),
 (738, 'S024', '0.545', 4, 3, 1, 12),
-(813, 'S001', '0', 7, 4, 3, 9),
-(814, 'S002', '0', 7, 4, 3, 9),
-(815, 'S003', '0', 3, 4, 1, 9),
-(816, 'S004', '0', 5, 4, 1, 9),
-(817, 'S005', '0', 3, 4, 1, 9),
-(818, 'S006', '0.571', 2, 4, 2, 9),
-(819, 'S007', '0', 2, 4, 2, 9),
-(820, 'S008', '0.785', 3, 4, 1, 9),
-(821, 'S009', '0.428', 3, 4, 1, 9);
+(881, 'S001', '0.166', 7, 4, 3, 9),
+(882, 'S002', '0', 7, 4, 3, 9),
+(883, 'S003', '0.166', 3, 4, 1, 9),
+(884, 'S004', '0', 5, 4, 1, 9),
+(885, 'S005', '0', 3, 4, 1, 9),
+(886, 'S006', '0', 2, 4, 2, 9),
+(887, 'S007', '0', 2, 4, 2, 9),
+(888, 'S008', '0', 3, 4, 1, 9),
+(889, 'S009', '0', 3, 4, 1, 9),
+(890, 'S010', '0', 4, 4, 0, 9),
+(891, 'S011', '0.277', 3, 4, 1, 9),
+(892, 'S012', '0.722', 6, 4, 2, 9),
+(893, 'S013', '0.277', 3, 4, 1, 9),
+(894, 'S014', '0', 4, 4, 0, 9),
+(895, 'S015', '0', 4, 4, 0, 9);
 
 -- --------------------------------------------------------
 
@@ -220,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `kasus` (
 `id_kasus` int(11) NOT NULL,
   `id_gejala` varchar(5) NOT NULL,
   `id_solusi` varchar(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kasus`
@@ -256,7 +241,31 @@ INSERT INTO `kasus` (`id_kasus`, `id_gejala`, `id_solusi`) VALUES
 (163, 'G012', 'S010'),
 (164, 'G013', 'S010'),
 (165, 'G021', 'S010'),
-(166, 'G022', 'S010');
+(166, 'G022', 'S010'),
+(167, 'G005', 'S011'),
+(168, 'G008', 'S011'),
+(169, 'G009', 'S011'),
+(170, 'G004', 'S012'),
+(171, 'G005', 'S012'),
+(172, 'G006', 'S012'),
+(173, 'G007', 'S012'),
+(174, 'G008', 'S012'),
+(175, 'G009', 'S012'),
+(176, 'G010', 'S013'),
+(177, 'G011', 'S013'),
+(178, 'G012', 'S013'),
+(179, 'G001', 'S014'),
+(180, 'G003', 'S014'),
+(181, 'G004', 'S014'),
+(182, 'G005', 'S014'),
+(183, 'G016', 'S015'),
+(184, 'G017', 'S015'),
+(185, 'G018', 'S015'),
+(186, 'G021', 'S015'),
+(187, 'G006', 'S016'),
+(188, 'G007', 'S016'),
+(189, 'G008', 'S016'),
+(190, 'G011', 'S016');
 
 -- --------------------------------------------------------
 
@@ -414,7 +423,7 @@ CREATE TABLE IF NOT EXISTS `notifikasi` (
   `kategori` varchar(20) NOT NULL,
   `tgl_notif` varchar(30) NOT NULL,
   `status` varchar(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notifikasi`
@@ -426,7 +435,14 @@ INSERT INTO `notifikasi` (`id_notifikasi`, `id_pengguna`, `id_penerima`, `id_pos
 (3, 0, 1, 15, 'v_explicit', '2017-04-09 13:03:40', 'N'),
 (4, 9, 9, 27, 'tacit', '2017-04-09 13:19:23', 'N'),
 (5, 9, 1, 12, 'tacit', '2017-04-09 13:19:47', 'N'),
-(6, 0, 9, 69, 'v_tacit', '2017-04-10 20:03:17', 'Y');
+(6, 0, 9, 69, 'v_tacit', '2017-04-10 20:03:17', 'Y'),
+(7, 0, 9, 68, 'v_tacit', '2017-04-11 1:57:27', 'Y'),
+(8, 0, 9, 63, 'v_tacit', '2017-04-11 14:50:14', 'Y'),
+(9, 0, 9, 63, 'v_tacit', '2017-04-11 14:50:17', 'Y'),
+(10, 0, 9, 64, 'v_tacit', '2017-04-11 14:51:44', 'Y'),
+(12, 0, 10, 70, 'v_tacit', '2017-04-11 16:02:50', 'Y'),
+(23, 0, 10, 67, 'r_tacit', '2017-04-11 21:36:28', 'Y'),
+(24, 9, 9, 69, 'tacit', '2017-04-12 18:10:11', 'N');
 
 -- --------------------------------------------------------
 
@@ -476,11 +492,11 @@ CREATE TABLE IF NOT EXISTS `pengetahuan_tacit` (
   `masalah` text NOT NULL,
   `solusi` text NOT NULL,
   `tgl_post` varchar(30) NOT NULL,
-  `validasi_tacit` int(1) NOT NULL DEFAULT '0',
+  `validasi_tacit` int(1) NOT NULL DEFAULT '0' COMMENT '0 : tidak valid 1: valid 2: revisi',
   `like` int(5) NOT NULL,
   `bulan` varchar(2) NOT NULL,
   `tahun` int(4) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pengetahuan_tacit`
@@ -497,13 +513,14 @@ INSERT INTO `pengetahuan_tacit` (`id_tacit`, `id_pengguna`, `id_kategori`, `judu
 (25, 9, 1, 'Gabah Beras', '<p>gugxugugxgx</p>\r\n', '<p>ahuiaiusib</p>\r\n', '2017-04-08 7:13:29', 1, 0, '04', 2017),
 (27, 9, 9, 'SFSF', '<p>EQERWSRS</p>\r\n', '<p>GDGY</p>\r\n', '2017-04-09 0:28:35', 1, 0, '04', 2017),
 (62, 9, 4, 'tes', '<p>iauagu</p>\r\n', '<p>ugugua</p>\r\n', '2017-04-09 20:12:27', 0, 0, '04', 2017),
-(63, 9, 4, 'tes', '<p>iauagu</p>\r\n', '<p>ugugua</p>\r\n', '2017-04-09 20:12:27', 0, 0, '04', 2017),
-(64, 9, 4, 'tes', '<p>iauagu</p>\r\n', '<p>ugugua</p>\r\n', '2017-04-09 20:12:27', 0, 0, '04', 2017),
+(63, 9, 4, 'tes', '<p>iauagu</p>\r\n', '<p>ugugua</p>\r\n', '2017-04-09 20:12:27', 1, 0, '04', 2017),
+(64, 9, 4, 'tes', '<p>iauagu</p>\r\n', '<p>ugugua</p>\r\n', '2017-04-09 20:12:27', 1, 0, '04', 2017),
 (65, 9, 3, 'tes2', '<p>guggj</p>\r\n', '<p>guyguyfy</p>\r\n', '2017-04-09 20:16:00', 0, 0, '04', 2017),
-(66, 9, 3, 'tes2', '<p>guggj</p>\r\n', '<p>guyguyfy</p>\r\n', '2017-04-09 20:16:00', 0, 0, '04', 2017),
-(67, 9, 3, 'tes2', '<p>guggj</p>\r\n', '<p>guyguyfy</p>\r\n', '2017-04-09 20:16:00', 0, 0, '04', 2017),
-(68, 9, 1, 'nyubo1', '<p>cubo cubo cubo</p>\r\n', '<p>123</p>\r\n', '2017-04-09 22:26:12', 0, 0, '04', 2017),
-(69, 9, 13, 'nyubo2', '<p>nyubo2<br />\r\n&nbsp;</p>\r\n', '<p>nyubo2</p>\r\n', '2017-04-10 19:45:06', 1, 0, '04', 2017);
+(66, 9, 3, 'tes2', '<p>guggj</p>\r\n', '<p>guyguyfy</p>\r\n', '2017-04-09 20:16:00', 2, 0, '04', 2017),
+(67, 9, 3, 'tes2', '<p>guggj</p>\r\n', '<p>guyguyfy</p>\r\n', '2017-04-09 20:16:00', 2, 0, '04', 2017),
+(68, 9, 1, 'nyubo1', '<p>cubo cubo cubo</p>\r\n', '<p>123</p>\r\n', '2017-04-09 22:26:12', 1, 0, '04', 2017),
+(69, 9, 13, 'nyubo2', '<p>nyubo2<br />\r\n&nbsp;</p>\r\n', '<p>nyubo2</p>\r\n', '2017-04-10 19:45:06', 1, 0, '04', 2017),
+(70, 10, 4, 'nyubo3', '<p>nyubo bae</p>\r\n', '<p>nyubo nian</p>\r\n', '2017-04-11 1:45:01', 1, 0, '04', 2017);
 
 -- --------------------------------------------------------
 
@@ -532,10 +549,32 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 INSERT INTO `pengguna` (`id_pengguna`, `nip`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `id_jabatan`, `hak_akses`, `userfile`, `password`, `poin`) VALUES
 (1, '040668', 'Fakhri Fajrulfalah', 'Laki-laki', 'Palembang', '1994-06-05', 2, 2, 'fakhri.jpg', 'a0bae51a854b72338f3dc0fac5324934', 130),
 (8, '931164', 'Suryono', 'Laki-laki', 'Bandung', '1989-06-09', 3, 3, 'no_photo.jpg', 'fc43884b70bec84572527b64c85993b0', 40),
-(9, '080408', 'Luthfi Hardianto', 'Laki-laki', 'Palembang', '1980-05-07', 1, 1, 'no_photo.jpg', 'e2be1a765190b65b15e2054be34c0db8', 70),
+(9, '080408', 'Luthfi Hardianto', 'Laki-laki', 'Palembang', '1980-05-07', 1, 1, 'no_photo.jpg', 'e2be1a765190b65b15e2054be34c0db8', 110),
 (10, '130451', 'Kurniawan', 'Laki-laki', 'Palembang', '1977-05-09', 4, 4, 'no_photo.jpg', 'cf463c9033e2a7c8513084cc565dc137', 10),
 (11, '90828', 'Choirunnisa Qonitah', 'Perempuan', 'Palembang', '2017-04-01', 4, 4, 'no_photo.jpg', 'c1cb86799840c59165637f847c17cc32', 0),
 (12, '011095', 'Choirunnisa Muthi''ah', 'Perempuan', 'Palembang', '2017-04-01', 2, 2, 'no_photo.jpg', 'f24713a1dc64ecc5505b49e6b7b91f15', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `request_gejala`
+--
+
+CREATE TABLE IF NOT EXISTS `request_gejala` (
+`id_request` int(5) NOT NULL,
+  `id_bagian` varchar(5) NOT NULL,
+  `nama_gejala` varchar(100) NOT NULL,
+  `id_pengguna` int(5) NOT NULL,
+  `tgl_request` varchar(30) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `request_gejala`
+--
+
+INSERT INTO `request_gejala` (`id_request`, `id_bagian`, `nama_gejala`, `id_pengguna`, `tgl_request`, `status`) VALUES
+(2, 'B003', 'Mesin RMU tidak mau hidup', 10, '2017-04-15 13:52:05', 0);
 
 -- --------------------------------------------------------
 
@@ -548,14 +587,42 @@ CREATE TABLE IF NOT EXISTS `revise` (
   `id_solusi` varchar(5) NOT NULL,
   `revisi` text NOT NULL,
   `id_pengguna` int(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `revise`
+-- Table structure for table `revise_explicit`
 --
 
-INSERT INTO `revise` (`id_revise`, `id_solusi`, `revisi`, `id_pengguna`) VALUES
-(2, 'S010', 'Revisiiiiii solusiiii', 9);
+CREATE TABLE IF NOT EXISTS `revise_explicit` (
+`id_revise` int(5) NOT NULL,
+  `id_explicit` int(5) NOT NULL,
+  `note` text NOT NULL,
+  `id_pengguna` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `revise_tacit`
+--
+
+CREATE TABLE IF NOT EXISTS `revise_tacit` (
+`id_revise` int(5) NOT NULL,
+  `id_tacit` int(5) NOT NULL,
+  `note` text NOT NULL,
+  `id_pengguna` int(5) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `revise_tacit`
+--
+
+INSERT INTO `revise_tacit` (`id_revise`, `id_tacit`, `note`, `id_pengguna`) VALUES
+(3, 70, 'inilah dia', 10),
+(10, 66, 'sabar', 10),
+(13, 67, '4321', 10);
 
 -- --------------------------------------------------------
 
@@ -589,7 +656,14 @@ CREATE TABLE IF NOT EXISTS `riwayat` (
   `id_solusi` varchar(5) NOT NULL,
   `nama_solusi` text NOT NULL,
   `solusi_masalah` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `riwayat`
+--
+
+INSERT INTO `riwayat` (`id_riwayat`, `id_solusi`, `nama_solusi`, `solusi_masalah`) VALUES
+(1, 'S010', 'Menghindari Penyusutan Kuantitas Beras', '<ul>\r\n<li>Sebelum beras dimasukkan kedalam kemasan plastik, cek atau periksa kadar air beras</li>\r\n<li>Beras dikemas ditakaran tertentu, misalnya 5 kg</li>\r\n<li>Beras yang sudah dimasukkan kedalam kemasan ditumpuk diatas papan tempat penyimpanan maksimal 15 tumpukan.</li>\r\n<li>Setiap jenis berat dalam tumpukan disusun dalam blok-blok yang terpisah.</li>\r\n</ul>\r\n');
 
 -- --------------------------------------------------------
 
@@ -611,7 +685,7 @@ CREATE TABLE IF NOT EXISTS `solusi` (
 --
 
 INSERT INTO `solusi` (`id_solusi`, `nama_solusi`, `solusi_masalah`, `validasi`, `urut`, `dilihat`) VALUES
-('S001', 'Menanggulangi Hama', '<ul>\r\n	<li>periksa kebersihan lumbung</li>\r\n	<li>periksa kadar air dan ruangan tempat penyimpanan</li>\r\n	<li>periksa lantai dan dinding bangunan lumbung</li>\r\n	<li>periksa kondisi gabah/beras</li>\r\n	<li>periksa lantai jemur</li>\r\n	<li>ganti lantai jemur apabila sudah berjamur</li>\r\n	<li>ganti bagian RMU yang berkarat</li>\r\n</ul>\r\n', 0, 1, 2),
+('S001', 'Menanggulangi Hama', '<ul>\r\n	<li>periksa kebersihan lumbung</li>\r\n	<li>periksa kadar air dan ruangan tempat penyimpanan</li>\r\n	<li>periksa lantai dan dinding bangunan lumbung</li>\r\n	<li>periksa kondisi gabah/beras</li>\r\n	<li>periksa lantai jemur</li>\r\n	<li>ganti lantai jemur apabila sudah berjamur</li>\r\n	<li>ganti bagian RMU yang berkarat</li>\r\n</ul>\r\n', 0, 1, 3),
 ('S002', 'Menanggulangi jumlah menir yang tinggi', '<ul>\r\n<li>Cek silender besi</li>\r\n<li>Ganti silender besi dengan yang baru</li>\r\n<li>Kontrol waktu penyosohan sesuai standar</li>\r\n</ul>\r\n', 1, 2, 1),
 ('S003', 'Menanggulangi Hama', '<ul>\r\n	<li>periksa kebersihan lumbung</li>\r\n	<li>periksa kadar air dan ruangan tempat penyimpanan</li>\r\n	<li>periksa lantai dan dinding bangunan lumbung</li>\r\n	<li>periksa kondisi gabah/beras</li>\r\n	<li>periksa lantai jemur</li>\r\n	<li>ganti lantai jemur apabila sudah berjamur</li>\r\n	<li>ganti bagian RMU yang berkarat</li>\r\n</ul>\r\n', 1, 3, 1),
 ('S004', 'Menanggulangi Tingginya Jumlah Menir', '<ul>\r\n<li>Cek silender besi</li>\r\n<li>Ganti silender besi dengan yang baru</li>\r\n<li>Kontrol waktu penyosohan sesuai standar</li>\r\n</ul>', 1, 4, 1),
@@ -620,7 +694,13 @@ INSERT INTO `solusi` (`id_solusi`, `nama_solusi`, `solusi_masalah`, `validasi`, 
 ('S007', 'Kasus belum ada di database', 'Rekomendasi solusi belum tersedia', 1, 7, 1),
 ('S008', 'Menghindari Penyusutan Kuantitas Beras', '<ul>\r\n<li>Sebelum beras dimasukkan kedalam kemasan plastik, cek atau periksa kadar air beras</li>\r\n<li>Beras dikemas ditakaran tertentu, misalnya 5 kg</li>\r\n<li>Beras yang sudah dimasukkan kedalam kemasan ditumpuk diatas papan tempat penyimpanan maksimal 15 tumpukan.</li>\r\n<li>Setiap jenis berat dalam tumpukan disusun dalam blok-blok yang terpisah.</li>\r\n</ul>\r\n', 1, 8, 1),
 ('S009', 'Kasus belum ada di database', 'Rekomendasi solusi belum tersedia', 1, 9, 1),
-('S010', 'Menghindari Penyusutan Kuantitas Beras', '<ul>\r\n<li>Sebelum beras dimasukkan kedalam kemasan plastik, cek atau periksa kadar air beras</li>\r\n<li>Beras dikemas ditakaran tertentu, misalnya 5 kg</li>\r\n<li>Beras yang sudah dimasukkan kedalam kemasan ditumpuk diatas papan tempat penyimpanan maksimal 15 tumpukan.</li>\r\n<li>Setiap jenis berat dalam tumpukan disusun dalam blok-blok yang terpisah.</li>\r\n</ul>\r\n', 3, 10, 2);
+('S010', 'Menghindari Penyusutan Kuantitas Beras', '<ul>\r\n	<li>Sebelum beras dimasukkan kedalam kemasan plastik, cek atau periksa kadar air beras</li>\r\n	<li>Beras dikemas ditakaran tertentu, misalnya 5 kg</li>\r\n	<li>Beras yang sudah dimasukkan kedalam kemasan ditumpuk diatas papan tempat penyimpanan maksimal 15 tumpukan.</li>\r\n	<li>Setiap jenis berat dalam tumpukan disusun dalam blok-blok yang terpisah.</li>\r\n	<li>Jika ada beras yang tumpah, segera bersihkan dan kembali dijemur</li>\r\n</ul>\r\n', 0, 10, 2),
+('S011', 'Kasus belum ada di database', 'Rekomendasi solusi belum tersedia', 1, 11, 1),
+('S012', 'Kasus belum ada di database', 'Rekomendasi solusi belum tersedia', 1, 12, 1),
+('S013', 'Kasus belum ada di database', 'Rekomendasi solusi belum tersedia', 1, 13, 1),
+('S014', 'Kasus belum ada di database', 'Rekomendasi solusi belum tersedia', 1, 14, 1),
+('S015', 'Kasus belum ada di database', 'Rekomendasi solusi belum tersedia', 1, 15, 1),
+('S016', 'Kasus belum ada di database', 'Rekomendasi solusi belum tersedia', 1, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -634,7 +714,15 @@ CREATE TABLE IF NOT EXISTS `tag_explicit` (
   `id_pengguna` int(5) NOT NULL,
   `tgl_tag` varchar(30) NOT NULL,
   `status` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tag_explicit`
+--
+
+INSERT INTO `tag_explicit` (`id_tag`, `id_explicit`, `id_pengguna`, `tgl_tag`, `status`) VALUES
+(1, 12, 1, '2017-04-13', NULL),
+(2, 12, 10, '2017-04-13', NULL);
 
 -- --------------------------------------------------------
 
@@ -648,7 +736,7 @@ CREATE TABLE IF NOT EXISTS `tag_tacit` (
   `id_pengguna` int(5) NOT NULL,
   `tgl_tag` varchar(30) NOT NULL,
   `status` int(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tag_tacit`
@@ -656,7 +744,11 @@ CREATE TABLE IF NOT EXISTS `tag_tacit` (
 
 INSERT INTO `tag_tacit` (`id_tag`, `id_tacit`, `id_pengguna`, `tgl_tag`, `status`) VALUES
 (4, 69, 10, '2017-04-10', NULL),
-(5, 69, 11, '2017-04-10', NULL);
+(5, 69, 11, '2017-04-10', NULL),
+(11, 70, 9, '2017-04-10', NULL),
+(14, 70, 11, '2017-04-10', NULL),
+(15, 68, 11, '2017-04-13', NULL),
+(16, 68, 12, '2017-04-13', NULL);
 
 -- --------------------------------------------------------
 
@@ -668,17 +760,17 @@ CREATE TABLE IF NOT EXISTS `tmp_gejala` (
 `id_tmp_gejala` int(11) NOT NULL,
   `id_gejala` varchar(5) NOT NULL,
   `id_pengguna` int(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=259 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=282 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tmp_gejala`
 --
 
 INSERT INTO `tmp_gejala` (`id_tmp_gejala`, `id_gejala`, `id_pengguna`) VALUES
-(255, 'G012', 9),
-(256, 'G013', 9),
-(257, 'G021', 9),
-(258, 'G022', 9);
+(278, 'G006', 9),
+(279, 'G007', 9),
+(280, 'G008', 9),
+(281, 'G011', 9);
 
 --
 -- Indexes for dumped tables
@@ -781,10 +873,28 @@ ALTER TABLE `pengguna`
  ADD PRIMARY KEY (`id_pengguna`), ADD KEY `id_jabatan` (`id_jabatan`);
 
 --
+-- Indexes for table `request_gejala`
+--
+ALTER TABLE `request_gejala`
+ ADD PRIMARY KEY (`id_request`), ADD KEY `id_bagian` (`id_bagian`), ADD KEY `id_pengguna` (`id_pengguna`);
+
+--
 -- Indexes for table `revise`
 --
 ALTER TABLE `revise`
  ADD PRIMARY KEY (`id_revise`), ADD KEY `id_solusi` (`id_solusi`);
+
+--
+-- Indexes for table `revise_explicit`
+--
+ALTER TABLE `revise_explicit`
+ ADD PRIMARY KEY (`id_revise`), ADD KEY `id_tacit` (`id_explicit`,`id_pengguna`);
+
+--
+-- Indexes for table `revise_tacit`
+--
+ALTER TABLE `revise_tacit`
+ ADD PRIMARY KEY (`id_revise`), ADD KEY `id_tacit` (`id_tacit`,`id_pengguna`);
 
 --
 -- Indexes for table `reward`
@@ -835,7 +945,7 @@ MODIFY `nip` int(5) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `hasil`
 --
 ALTER TABLE `hasil`
-MODIFY `id_hasil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=822;
+MODIFY `id_hasil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=896;
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
@@ -845,7 +955,7 @@ MODIFY `id_jabatan` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `kasus`
 --
 ALTER TABLE `kasus`
-MODIFY `id_kasus` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=167;
+MODIFY `id_kasus` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=191;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
@@ -880,7 +990,7 @@ MODIFY `id_lumbung` int(5) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `pengetahuan_explicit`
 --
@@ -890,17 +1000,32 @@ MODIFY `id_explicit` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 -- AUTO_INCREMENT for table `pengetahuan_tacit`
 --
 ALTER TABLE `pengetahuan_tacit`
-MODIFY `id_tacit` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=70;
+MODIFY `id_tacit` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
 MODIFY `id_pengguna` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
+-- AUTO_INCREMENT for table `request_gejala`
+--
+ALTER TABLE `request_gejala`
+MODIFY `id_request` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `revise`
 --
 ALTER TABLE `revise`
-MODIFY `id_revise` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_revise` int(5) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `revise_explicit`
+--
+ALTER TABLE `revise_explicit`
+MODIFY `id_revise` int(5) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `revise_tacit`
+--
+ALTER TABLE `revise_tacit`
+MODIFY `id_revise` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `reward`
 --
@@ -910,22 +1035,22 @@ MODIFY `id_reward` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `riwayat`
 --
 ALTER TABLE `riwayat`
-MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tag_explicit`
 --
 ALTER TABLE `tag_explicit`
-MODIFY `id_tag` int(5) NOT NULL AUTO_INCREMENT;
+MODIFY `id_tag` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tag_tacit`
 --
 ALTER TABLE `tag_tacit`
-MODIFY `id_tag` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_tag` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `tmp_gejala`
 --
 ALTER TABLE `tmp_gejala`
-MODIFY `id_tmp_gejala` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=259;
+MODIFY `id_tmp_gejala` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=282;
 --
 -- Constraints for dumped tables
 --

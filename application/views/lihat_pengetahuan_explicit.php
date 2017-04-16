@@ -40,6 +40,7 @@
 						<td><?php if($data['validasi_explicit']=="1"){ echo "Tervalidasi";} else { echo "Belum Tervalidasi";}?></td>
                         <td>
 							<a href="<?php echo base_url('web/edit_dokumen');?>/<?php echo $data['id_explicit'];?>"><button class="btn btn-info btn-sm"><i class="fa fa-edit"></i></button></a>
+              <a href="<?php echo base_url('web/tag_dokumen');?>/<?php echo $data['id_explicit'];?>"><button class="btn btn-primary btn-sm"><i class="fa fa-share-alt"></i></button></a>
 							<a onClick="return confirmSubmit()" href="<?php echo base_url('web/hapus_dokumen');?>/<?php echo $data['id_explicit'];?>"><button class="btn  btn-danger btn-sm"><i class="fa fa-trash"></i></button></a>
 						</td>
                       </tr>

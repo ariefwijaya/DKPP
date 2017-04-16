@@ -57,6 +57,14 @@
 								  <i class="fa fa-gift text-aqua"></i> Anda mendapatkan reward<br/><font class='timeago' style="font-size:10px" title="<?php echo $notif['tgl_notif'];?>"><?php echo $notif['tgl_notif'];?></font><br/>
 								</a>
 							<?php } ?>
+							<?php if($notif['kategori']=='r_tacit'){?>
+								<a href="<?php echo base_url('web/detail_masalah_solusi/');?>/<?php echo $notif['id_posting'];?>" style="height:auto;">
+								  <i class="fa fa-certificate text-aqua"></i>Masalah & Solusi perlu direvisi<br/><font class='timeago' tyle="font-size:10px" title="<?php echo $notif['tgl_notif'];?>"><?php echo $notif['tgl_notif'];?></font><br/>
+							<?php } ?>
+							<?php if($notif['kategori']=='r_explicit'){?>
+								<a href="<?php echo base_url('web/detail_dokumen/');?>/<?php echo $notif['id_posting'];?>" style="height:auto;">
+								  <i class="fa fa-certificate text-aqua"></i>Dokumen perlu direvisi<br/><font class='timeago' tyle="font-size:10px" title="<?php echo $notif['tgl_notif'];?>"><?php echo $notif['tgl_notif'];?></font><br/>
+							<?php } ?>
 						</td>
                       </tr>
                     <?php

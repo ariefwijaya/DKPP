@@ -101,9 +101,9 @@
 								</div><!-- /.box -->
 							</div>
 							<?php if($data['validasi_tacit']=='0'){?>
-							<a onClick="return confirmSubmit()" href="<?php echo base_url('web/validasi_tacit');?>/<?php echo $data['id_tacit'];?>/<?php echo $data['id_pengguna'];?>"><button class="btn  btn-success btn-sm"><i class="fa fa-check"> Validasi</i></button>
-							<div class="box-footer">
-							<!-- revisi pakar --->
+								<onClick="return confirmSubmit()" href="<?php echo base_url('web/validasi_tacit/');?>"><button class="btn  btn-success btn-sm"><i class="fa fa-check"> Validasi</i></button> 
+									<div class="box-footer">
+									<!-- revisi pakar --->
 							<script> 
 							$(document).ready(function(){
 								$("#flip").click(function(){
@@ -116,7 +116,7 @@
 							#panel {
 								display: none;
 							}
-							</style>
+							</style
 							
 							<div class="box box-solid box-warning">
 							<div id="flip" class="box-header">
@@ -132,15 +132,15 @@
 							</form>
 							</div>
 							</div>
-							<!-- .revisi pakar --->
+							<!-- .revisi pakar ->
 							</div>							
-						</div><!-- /.box -->
-							<?php } 
-							else if($data['validasi_tacit']=='2') {?>
-									<h3>"Revision is on Review by The Author"</h3>
-							<?php } 
-							else{?> 
-							<a onClick="return confirmSubmit()" href="<?php echo base_url('web/batal_validasi_tacit');?>/<?php echo $data['id_tacit'];?>/<?php echo $data['id_pengguna'];?>"><button class="btn  btn-danger btn-sm"><i class="fa fa-error"> Batalkan Validasi</i></button></a>
+							</div><!-- /.box -->
+							<?php }
+							 else if($data['validasi_tacit']=='2') {?>
+									<center><h4>"Revisi sedang diproses oleh penulis"</h4></center>
+							<?php }
+							 else{?> 
+							<onClick="return confirmSubmit()" href="<?php echo base_url('web/batal_validasi_tacit');?>"><button class="btn  btn-danger btn-sm"><i class="fa fa-error"> Batalkan Validasi</i></button>
 							<?php } ?>
 							</div><!-- /.box-body -->
 						</div><!-- /.box -->
@@ -156,5 +156,5 @@
 			{
 				$j("font.timeago").timeago();
 				$j("font.timeago1").timeago();
-			});
+			}); 
 	</script>

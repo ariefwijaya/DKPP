@@ -80,29 +80,29 @@ class Web extends CI_Controller {
 	{
 		$id_pengguna 	= $this->get_id_pengguna();
 
-    	$query = $this->Web_model->get_checked_new_tags($id_pengguna);
+		$query = $this->Web_model->get_checked_new_tags($id_pengguna);
 
-    }
+	}
 
-    public function cek_tags_tacit()
+	public function cek_tags_tacit()
 	{
 		$id_pengguna 	= $this->get_id_pengguna();
 
-    	$query = $this->Web_model->get_count_new_tags_tacit($id_pengguna);
+		$query = $this->Web_model->get_count_new_tags_tacit($id_pengguna);
 
-    	echo $query;
-    }
+		echo $query;
+	}
 
-    public function cek_tags_explicit()
+	public function cek_tags_explicit()
 	{
 		$id_pengguna 	= $this->get_id_pengguna();
 
-    	$query = $this->Web_model->get_count_new_tags_explicit($id_pengguna);
+		$query = $this->Web_model->get_count_new_tags_explicit($id_pengguna);
 
-    	echo $query;
-    }
+		echo $query;
+	}
 
-    public function Ajax_hapus_tags_tacit()
+	public function Ajax_hapus_tags_tacit()
 	{
 		$table 				= "tag_tacit";	
 		$where['id_tag'] 	= $this->input->post('id_tag');
@@ -179,22 +179,45 @@ class Web extends CI_Controller {
 								$this->Web_model->insert($data1,$table1);
 							}
 
-						 //ini bukan rief? iyoo.. hapus be ini
 						echo "<script>alert('Berhasil Membagikan Pengetahuan ini Kepada Teman Anda');</script>";
-						redirect(base_url('web/tag_masalah_solusi/'.$id), 'refresh');			//biar dio redirect di sinilah 	
+						redirect(base_url('web/tag_masalah_solusi/'.$id), 'refresh');		
 					}
 	}
-
-	public function tambah_tag_explicit()
+	public function tag_dokumen($id) 
 	{
-		$data['login']			= $this->session->userdata('login', true);
+		$data['login']			= $this->session->userdata('login', true); 
+		if($data['login']==false) redirect(base_url('web/login'));
+		
+
+		$data['judul']			= "Tag Dokumen | KMS Dinas Ketahanan Pangan dan Peternakan Provinsi Sumsel";
+		$id_explicit			= $this->uri->segment(3);
+		$id_pengguna			= $this->session->userdata('id_pengguna');
+		$data['id_explicit'] = $id;
+		$data['explicit']	 	= $this->Web_model->explicit($id_explicit,$id_pengguna);
+		$data['list_untagged']	= $this->Web_model->get_all_user_except_this_user_and_tagged_explicit_user($id_pengguna,$id);
+		$data['list_tagged'] 	= $this->Web_model->get_all_explicit_taged_user($id);
+		$data['notif']			= $this->Web_model->notif($id_pengguna);
+		$data['valid_t']		= $this->Web_model->valid_t($id_pengguna);
+		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
+		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
+		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
+		$data['pengguna']		= $this->Web_model->data_pengguna($id_pengguna);
+		$data['kategori']		= $this->Web_model->kategori();
+		$data['content']		= 'tag_dokumen';
+		$this->load->view('template',$data);
+	}
+	public function tambah_tag_explicit($id)
+	{
+		$data['login']			= $this->session->userdata('login', true); 
 		if($data['login']==false) redirect(base_url('web/login'));
 
-			$id_tacit = $this->input->post('id_explicit');
+			//$data['tacit']		= $this->Web_model->tacit($id_tacit,$id_pengguna);
+			$id_explicit = $id;//$this->input->post('id_tacit');
+		
 
-					if($this->input->post('tag') !=''){
+					if($this->input->post('tags') !=''){
 							$last_id 	= $id_explicit;
-							$list_tag 	= $this->input->post('tag');
+							$list_tag 	= $this->input->post('tags');
 							$table1 	= "tag_explicit";
 
 							foreach ($list_tag as $key => $a) {
@@ -204,18 +227,13 @@ class Web extends CI_Controller {
 
 								$this->Web_model->insert($data1,$table1);
 							}
-						
 
-						echo "<script>alert('Berhasil Membagikan Pengetahuan Explicit ini Kepada Teman Anda');</script>";
-						redirect($this->class_name."/lihat_dokumen/".$id_pengguna,'refresh');					
-					}else{
-
-						echo "<script>alert('Anda Tidak Memasukkan Nama Untuk Dibagikan Pengetahuan Ini!');</script>";
-						redirect($this->class_name."/lihat_dokumen/".$id_explicit,'refresh');					
+						echo "<script>alert('Berhasil Membagikan Pengetahuan ini Kepada Teman Anda');</script>";
+						redirect(base_url('web/tag_dokumen/'.$id), 'refresh');		
 					}
 	}
 
-    public function pengetahuan_dibagikan()
+	public function pengetahuan_dibagikan()
 	{
 		$data['login']			= $this->session->userdata('login', true);
 		if($data['login']==false) redirect(base_url('web/login'));
@@ -235,7 +253,7 @@ class Web extends CI_Controller {
 	}
 
 	public function pengetahuan_tacit_dibagikan()
-    {
+	{
 		$data['login']			= $this->session->userdata('login', true);
 		if($data['login']==false) redirect(base_url('web/login'));
 
@@ -248,17 +266,16 @@ class Web extends CI_Controller {
 					$data['valid_t']			= $this->Web_model->valid_t($id_pengguna);
 					$data['nvalid_t']			= $this->Web_model->nvalid_t($id_pengguna);
 					$data['valid_e']			= $this->Web_model->valid_e($id_pengguna);
-					$data['nvalid_e']			= $this->Web_model->nvalid_e($id_pengguna);
-					$data['tacit']	 			= $this->Web_model->get_all_tacit_tagged_user($id_pengguna);
+					$data['nvalid_e']			= $this->Web_model->nvalid_e($id_pengguna);	
+					$data['tacit']	 			= $this->Web_model->daftar_data_tacit();
 					$data['explicit'] 			= $this->Web_model->tag_explicit($id_pengguna);
 					$data['list_shared_tacit']	= $this->Web_model->get_all_shared_tacit($id_pengguna);
 					$data['content']			= "pengetahuan_tacit_dibagikan";
 					$this->load->view('template',$data);
-
-    }
+	}
 
 	public function pengetahuan_explicit_dibagikan()
-    {
+	{
 		$data['login']			= $this->session->userdata('login', true);
 		if($data['login']==false) redirect(base_url('web/login'));
 
@@ -272,13 +289,13 @@ class Web extends CI_Controller {
 					$data['nvalid_t']				= $this->Web_model->nvalid_t($id_pengguna);
 					$data['valid_e']				= $this->Web_model->valid_e($id_pengguna);
 					$data['nvalid_e']				= $this->Web_model->nvalid_e($id_pengguna);
-					$data['tacit']	 				= $this->Web_model->get_all_tacit_tagged_user($id_pengguna);
+					$data['explicit']		 		= $this->Web_model->daftar_data_explicit();
 					$data['explicit'] 				= $this->Web_model->tag_explicit($id_pengguna);
 					$data['list_shared_explicit']	= $this->Web_model->get_all_shared_explicit($id_pengguna);
 					$data['content']				= "pengetahuan_explicit_dibagikan";
 					$this->load->view('template',$data);
 
-    }	
+	}	
 	
 	public function input_masalah_solusi()
 	{
@@ -302,8 +319,8 @@ class Web extends CI_Controller {
 		$this->load->view('template',$data);
 	}
 	function submit_masalah_solusi()
-    {	
-    	$table 				= "pengetahuan_tacit";
+	{	
+		$table 				= "pengetahuan_tacit";
 		$data=array();
 		$data['id_pengguna']		= $this->session->userdata('id_pengguna');
 		$data['id_kategori']		= $this->input->post('id_kategori');
@@ -342,7 +359,7 @@ class Web extends CI_Controller {
 			redirect(base_url('web/lihat_masalah_solusi'), 'refresh');
 			}
 		}
-    }
+	}
 	public function lihat_masalah_solusi()
 	{
 		$data['login']			= $this->session->userdata('login', true);
@@ -381,7 +398,7 @@ class Web extends CI_Controller {
 		$this->load->view('template',$data);
 	}
 	function update_masalah_solusi()
-    {	
+	{	
 		$data=array();
 		$data['id_pengguna']		= $this->session->userdata('id_pengguna');
 		$data['id_kategori']		= $this->input->post('id_kategori');
@@ -402,7 +419,51 @@ class Web extends CI_Controller {
 			echo "<script> alert('Data Masalah dan Solusi Berhasil diupdate.');</script>";
 			redirect(base_url('web/lihat_masalah_solusi'), 'refresh');
 		}
-    }
+	}
+	public function edit_revisi_masalah_solusi()
+	{
+		$data['login']			= $this->session->userdata('login', true);
+		if($data['login']==false) redirect(base_url('web/login'));
+		
+		$data['judul']			= "Edit Masalah dan Solusi | KMS Dinas Ketahanan Pangan dan Peternakan Provinsi Sumsel";
+		$id_tacit				= $this->uri->segment(3);
+		$id_pengguna			= $this->session->userdata('id_pengguna');
+		$data['tacit']	 		= $this->Web_model->tacit($id_tacit,$id_pengguna);
+		$data['notif']			= $this->Web_model->notif($id_pengguna);
+		$data['valid_t']		= $this->Web_model->valid_t($id_pengguna);
+		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
+		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
+		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
+		$id_pengguna			= $this->session->userdata('id_pengguna');
+		$data['pengguna']		= $this->Web_model->data_pengguna($id_pengguna);
+		$data['kategori']		= $this->Web_model->kategori();
+		$data['content']		= 'edit_revisi_pengetahuan_tacit';
+		$this->load->view('template',$data);
+	}
+	function update_revisi_masalah_solusi()
+	{	
+		$data=array();
+		$data['id_pengguna']		= $this->session->userdata('id_pengguna');
+		$data['id_kategori']		= $this->input->post('id_kategori');
+		$id							= $this->input->post('id_tacit');
+		$data['validasi_tacit']	= "0";
+		$data['judul_tacit']		= $this->input->post('judul_tacit');
+		$data['masalah']			= $this->input->post('masalah');
+		$data['solusi']				= $this->input->post('solusi');
+		$this->form_validation->set_rules('judul_tacit','Judul','required');
+		$this->form_validation->set_rules('masalah','Masalah','required');
+		$this->form_validation->set_rules('solusi','Solusi','required');
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->edit_revisi_masalah_solusi();
+		}
+		else
+		{
+			$this->Web_model->update_revisi_masalah_solusi($data,$id);
+			echo "<script> alert('Data Masalah dan Solusi Berhasil diupdate.');</script>";
+			redirect(base_url('web/lihat_masalah_solusi'), 'refresh');
+		}
+	}
 	function hapus_masalah_solusi()
 	{
 		$id_tacit				= $this->uri->segment(3);
@@ -428,7 +489,7 @@ class Web extends CI_Controller {
 		$this->load->view('template',$data);
 	}
 	function submit_dokumen()
-    {	
+	{	
 		$data=array();
 		$config['upload_path'] = './lampiran/explicit/';
 		$config['allowed_types'] = 'doc|docx|xls|xlsx|ppt|pptx|pdf';
@@ -464,7 +525,7 @@ class Web extends CI_Controller {
 				redirect(base_url('web/lihat_dokumen'), 'refresh');
 			}
 		}
-    }
+	}
 	public function lihat_dokumen()
 	{
 		$data['login']			= $this->session->userdata('login', true);
@@ -503,7 +564,7 @@ class Web extends CI_Controller {
 		$this->load->view('template',$data);
 	}
 	function update_dokumen()
-    {	
+	{	
 		$data=array();
 		$config['upload_path'] = './lampiran/explicit/';
 		$config['allowed_types'] = 'doc|docx|xls|xlsx|ppt|pptx|pdf';
@@ -563,7 +624,7 @@ class Web extends CI_Controller {
 				}
 			}
 		}
-    }
+	}
 	function hapus_dokumen()
 	{
 		$id_explicit			= $this->uri->segment(3);
@@ -596,7 +657,7 @@ class Web extends CI_Controller {
 		$this->load->view('template',$data);
 	}
 	function submit_data_pengguna()
-    {	
+	{	
 		$data=array();
 		$data['nip']		= $this->input->post('nip');
 		$data['password']		= md5($this->input->post('nip'));
@@ -623,7 +684,7 @@ class Web extends CI_Controller {
 			echo "<script> alert('Data Pengguna disimpan.');</script>";
 			redirect(base_url('web/daftar_pengguna'), 'refresh');
 		}
-    }
+	}
 
 	public function daftar_pengguna()
 	{
@@ -666,7 +727,7 @@ class Web extends CI_Controller {
 	}
 
 	function update_data_pengguna()
-    {	
+	{	
 		$data=array();
 		$id						= $this->input->post('id_pengguna');
 		$data['nip']		= $this->input->post('nip');
@@ -692,11 +753,11 @@ class Web extends CI_Controller {
 			echo "<script> alert('Data Pengguna berhasil diupdate.');</script>";
 			redirect(base_url('web/daftar_pengguna'), 'refresh');
 		}
-    }
+	}
 
 
 	function update_profil()
-    {	
+	{	
 		$data=array();
 		$config['upload_path'] = './photo/';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -766,7 +827,7 @@ class Web extends CI_Controller {
 				}
 			}
 		}
-    }
+	}
 
 	function reset_password()
 	{
@@ -826,10 +887,12 @@ class Web extends CI_Controller {
 
 	function validasi_tacit()
 	{
-		$id						= $this->uri->segment(3);
-		$id_pengguna			= $this->uri->segment(4);
-		$data['validasi_tacit']	= "1";
-		$this->Web_model->tacit_validasi($data,$id);
+		$poin;
+		$id 					= $this->input->post('id_tacit');
+		//$id						= $id;//$this->uri->segment(3);
+		//$id_pengguna			= $id_pengguna;
+		$data['validasi_tacit']	= "1"; 
+		$this->Web_model->tacit_validasi($data,$id); 
 		$lihat_poin				= $this->Web_model->lihat_poin($id_pengguna);
 		foreach($lihat_poin->result_array() as $l){
 			$poin				= $l['poin'];
@@ -844,22 +907,24 @@ class Web extends CI_Controller {
 		$this->Web_model->input_notifikasi($s);
 		redirect(base_url('web/validasi_masalah_solusi'), 'refresh');
 	}
-
-	function validasi_revisi_tacit()
-	{
-		$id						= $this->uri->segment(3);
-		$id_pengguna			= $this->uri->segment(4);
-		$data['validasi_tacit']	= "2";
-		$this->Web_model->tacit_validasi($data,$id);
-		$lihat_poin				= $this->Web_model->lihat_poin($id_pengguna);
-		foreach($lihat_poin->result_array() as $l){
-			$poin				= $l['poin'];
-		}
-		$p['poin']				= $poin+0;
-		$this->Web_model->update_poin($p,$id_pengguna);
-		$s['kategori']					= "v_tacit";
-		$this->Web_model->input_notifikasi($s);
-		redirect(base_url('web/validasi_masalah_solusi'), 'refresh');
+	function revisi_tacit()
+	{	
+		$id 						= $this->input->post('id_tacit');
+		$data['validasi_tacit'] 	= "2"; 
+		$this->Web_model->update_masalah_solusi($data,$id);
+		$id_pengguna = $this->input->post('id_pengguna'); 
+		$data=array();
+		$data['id_tacit']			= $this->input->post('id_tacit');
+		$data['note']				= $this->input->post('note'); 
+		$data['id_pengguna']		= $id_pengguna; 
+		$this->Web_model->insert_revise_tacit($data,$id); 
+		$s['id_penerima']			= $id_pengguna;
+		$s['id_posting']			= $id;
+		$s['kategori']				= "r_tacit";
+		$s['tgl_notif']				= gmdate('Y-m-d G:i:s', time()+60*60*7);
+		$s['status']				= 'N';		
+		$this->Web_model->input_notifikasi($s);	
+		redirect(base_url('web/cek_masalah/'.$id), 'refresh');
 	}
 
 	function batal_validasi_tacit()
@@ -877,6 +942,28 @@ class Web extends CI_Controller {
 		$kategori					= "v_tacit";
 		$this->Web_model->hapus_notifikasi($id,$kategori);
 		redirect(base_url('web/validasi_masalah_solusi'), 'refresh');
+	}
+
+	public function lihat_revisi_tacit()
+	{
+		$data['login']			= $this->session->userdata('login', true);
+		if($data['login']==false) redirect(base_url('web/login'));
+
+		$data['judul']				= "Lihat Revisi Masalah dan Solusi | KMS Dinas Ketahanan Pangan dan Peternakan Provinsi Sumsel";
+		$id_pengguna 				= $this->session->userdata('id_pengguna');
+		$data['pengguna'] 			= $this->Web_model->data_pengguna($id_pengguna); 
+		$data['notif'] 				= $this->Web_model->notif($id_pengguna);
+		$data['valid_t']			= $this->Web_model->valid_t($id_pengguna);
+		$data['nvalid_t']			= $this->Web_model->nvalid_t($id_pengguna);
+		$data['valid_e']			= $this->Web_model->valid_e($id_pengguna);
+		$data['nvalid_e']			= $this->Web_model->nvalid_e($id_pengguna);
+		$id 						= $this->uri->segment(3);
+		$data['cek_user']		    = $this->Web_model->cek_user($id,$id_pengguna);
+		$data['detail']	 			= $this->Web_model->detail_masalah($id);
+		$data['detail_revisi_t']	= $this->Web_model->detail_revisi_tacit($id_pengguna,$id);
+		$data['tacit']	 			= $this->Web_model->daftar_data_tacit();
+		$data['content']			= 'lihat_revisi_tacit';
+		$this->load->view('template',$data);
 	}
 
 	public function data_dokumen()
@@ -996,20 +1083,7 @@ class Web extends CI_Controller {
 		$data['content']		= 'cek_masalah';
 		$this->load->view('template',$data);
 	}
-	function revisi_tacit()
-    {	
-		$data=array();
-		$id						= $this->input->post('id_tacit');
-		$data 					= $this->input->post('note');
-		
-		$r['id_tacit']			= $this->input->post('id_tacit');
-		$r['note']				= $this->input->post('note');
-		$r['id_pengguna']		= $this->input->post('id_pengguna');
-		$this->Web_model->input_revisi_pakar_t($r);
-		?>
-		<script>window.location="cek_masalah/<?php echo $id;?>";</script>;
-		<?php
-    }
+	
 	public function like()
 	{
 		$id					= $this->uri->segment(3);
@@ -1203,7 +1277,7 @@ class Web extends CI_Controller {
 	}
 
 	function submit_gejala()
-    {	
+	{	
 		$data=array();
 		$data['id_gejala']		= $this->input->post('id_gejala');
 		$data['nama_gejala']	= $this->input->post('nama_gejala');
@@ -1222,7 +1296,7 @@ class Web extends CI_Controller {
 			$this->Web_model->input_gejala($data);
 			redirect(base_url('web/data_gejala'), 'refresh');
 		}
-    }
+	}
 
 	public function edit_gejala()
 	{
@@ -1246,7 +1320,7 @@ class Web extends CI_Controller {
 	}
 
 	function update_gejala()
-    {	
+	{	
 		$data=array();
 		$id						= $this->input->post('id_gejala');
 		$data['nama_gejala']	= $this->input->post('nama_gejala');
@@ -1264,13 +1338,115 @@ class Web extends CI_Controller {
 			$this->Web_model->update_gejala($data,$id);
 			redirect(base_url('web/data_gejala'), 'refresh');
 		}
-    }
+	}
 
 	function hapus_gejala()
 	{
 		$id					= $this->uri->segment(3);
 		$this->Web_model->hapus_gejala($id);
 		redirect(base_url('web/data_gejala'), 'refresh');
+	}
+
+	function request_gejala()
+	{	
+		$data=array();
+		$data['id_request']		= $this->input->post('id_request');
+		$data['nama_gejala']	= $this->input->post('nama_gejala');
+		$data['id_bagian']		= $this->input->post('id_bagian');
+		$data['tgl_request']	= gmdate('Y-m-d G:i:s', time()+60*60*7);
+		$data['status']			= 0;
+		$this->form_validation->set_rules('nama_gejala','nama gejala','required');
+		$this->form_validation->set_rules('id_bagian','id bagian','required');
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->problem_solving();
+		}
+		else
+		{
+			$this->Web_model->input_request_gejala($data);
+			redirect(base_url('web/problem_solving'), 'refresh');
+		}
+	}
+
+	public function lihat_request_gejala()
+	{
+		$data['login']			= $this->session->userdata('login', true);
+		if($data['login']==false) redirect(base_url('web/login'));
+		
+		$data['judul']			= "Data Request Gejala | KMS Dinas Ketahanan Pangan dan Peternakan Provinsi Sumsel";
+		$id_pengguna			= $this->session->userdata('id_pengguna');
+		$data['gejala']			= $this->Web_model->gejala(); 
+		$data['pengguna']		= $this->Web_model->data_pengguna($id_pengguna);
+		$data['notif']			= $this->Web_model->notif($id_pengguna);
+		$data['request_gejala']	= $this->Web_model->request_gejala();
+		$data['valid_t']		= $this->Web_model->valid_t($id_pengguna);
+		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
+		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
+		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
+		$data['content']		= 'request_gejala';
+		$this->load->view('template',$data);
+
+
+	}
+	function terima_gejala()
+	{
+		$data=array();
+		$data['id_gejala']		= $this->input->post('id_gejala');
+		$data['nama_gejala']	= $this->input->post('nama_gejala');
+		$data['urut']			= $this->input->post('urut');
+		$data['bobot_gejala']	= $this->input->post('bobot_gejala');
+		$data['id_bagian']		= $this->input->post('id_bagian');
+		$this->form_validation->set_rules('id_gejala','id gejala','required');
+		$this->form_validation->set_rules('nama_gejala','nama gejala','required');
+		$this->form_validation->set_rules('id_bagian','id bagian','required');
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->data_gejala();
+		}
+		else
+		{
+			$this->Web_model->input_gejala($data);
+			redirect(base_url('web/data_gejala'), 'refresh');
+		}
+	}
+
+	function ajax_terima_gejala($id)
+	{
+		$kd_gejala;
+		$no;
+		$kode_gejala = $this->Web_model->kode_gejala();
+		//ambil disini ja yeee
+		foreach($kode_gejala->result_array() as $rows)
+		{
+			$no = @$rows['urut'] + 1;
+			if(strlen($no) == '1'){
+			  $kd_gejala = "G00".$no;
+			}elseif(strlen($no) == '2'){
+			  $kd_gejala = "G0".$no;
+			}elseif(strlen($no) == '3'){
+			  $kd_gejala = "G".$no;
+			} 
+		}
+
+		$id_gejala = $this->Web_model->request_gejala($id);
+		$data = array();
+		foreach($id_gejala->result_array() as $request)
+		{ 
+
+			$data['id_gejala']		= $kd_gejala;
+			$data['nama_gejala']	= $request['nama_gejala']; 
+			$data['urut']			= $no;
+			$data['bobot_gejala']	= 0;
+			$data['id_bagian']		= $request['id_bagian'];
+		}
+
+		$this->Web_model->insert_gejala_lama($data);
+
+		$this->Web_model->update_status_gejala_baru(1,$id);
+		//echo json_encode($data);
+		 $data = array();
+         $data['status'] = TRUE;
+		echo json_encode($data);
 	}
 	
 	public function data_kasus()
@@ -1296,7 +1472,7 @@ class Web extends CI_Controller {
 	}
 	
 	function submit_kasus()
-    {
+	{
 		$data=array();
 		$data['id_solusi']		= $this->input->post('id_solusi');
 		$data['nama_solusi']	= $this->input->post('nama_solusi');
@@ -1318,7 +1494,7 @@ class Web extends CI_Controller {
 			echo "<script> alert('Data kasus berhasil disimpan');</script>";
 			redirect(base_url('web/data_kasus'), 'refresh');
 		}
-    }
+	}
 	
 	function delete_gejala()
 	{
@@ -1391,12 +1567,13 @@ class Web extends CI_Controller {
 		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
 		$data['gejala']			= $this->Web_model->daftar_gejala();
+		$data['bagian']			= $this->Web_model->bagian();
 		$data['content']		= 'problem_solving';
 		$this->load->view('template',$data);
 	}
 	
 	function cari_solusi()
-    {
+	{
 		$id_pengguna			= $this->session->userdata('id_pengguna');
 		$this->Web_model->reset_gejala($id_pengguna);
 		$this->Web_model->reset_solusi($id_pengguna);
@@ -1554,7 +1731,7 @@ class Web extends CI_Controller {
 		?>
 		<script>window.location="detail_solusi/<?php echo $kd_solusi;?>";</script>;
 		<?php
-    }
+	}
 
 	public function detail_solusi()
 	{
@@ -1585,7 +1762,7 @@ class Web extends CI_Controller {
 	}
 	
 	function revisi_solusi()
-    {	
+	{	
 		$data=array();
 		$id						= $this->input->post('id_solusi');
 		$data['validasi']		= '3';
@@ -1598,7 +1775,7 @@ class Web extends CI_Controller {
 		?>
 		<script>window.location="detail_solusi/<?php echo $id;?>";</script>;
 		<?php
-    }
+	}
 	
 	public function revise()
 	{
@@ -1689,7 +1866,7 @@ class Web extends CI_Controller {
 	}
 	
 	function submit_komentar_tacit()
-    {	
+	{	
 		$data=array();
 		$data['id_tacit']			= $this->input->post('id_tacit');
 		$data['isi_komentar_tacit']	= $this->input->post('isi_komentar_tacit');
@@ -1706,7 +1883,7 @@ class Web extends CI_Controller {
 		?>
 		<script>window.location="detail_masalah_solusi/<?php echo $data['id_tacit'];?>";</script>;
 		<?php
-    }
+	}
 	
 	function hapus_komentar_tacit()
 	{
@@ -1719,7 +1896,7 @@ class Web extends CI_Controller {
 	}
 	
 	function submit_komentar_explicit()
-    {	
+	{	
 		$data=array();
 		$data['id_explicit']			= $this->input->post('id_explicit');
 		$data['isi_komentar_explicit']	= $this->input->post('isi_komentar_explicit');
@@ -1736,7 +1913,7 @@ class Web extends CI_Controller {
 		?>
 		<script>window.location="detail_dokumen/<?php echo $data['id_explicit'];?>";</script>;
 		<?php
-    }
+	}
 	
 	function hapus_komentar_explicit()
 	{
@@ -1870,7 +2047,7 @@ class Web extends CI_Controller {
 	}
 	
 	function tambah_reward()
-    {	
+	{	
 		$data=array();
 		$id_pengguna				= $this->input->post('id_pengguna');
 		$data['id_pengguna']		= $this->input->post('id_pengguna');
@@ -1899,7 +2076,7 @@ class Web extends CI_Controller {
 			$this->Web_model->input_notifikasi($s);
 			redirect(base_url('web/kandidat_reward'), 'refresh');
 		}
-    }
+	}
 	
 	public function pengguna()
 	{
@@ -1999,6 +2176,7 @@ class Web extends CI_Controller {
 		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
 		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
+		$data['r_tacit']		= $this->Web_model->r_tacit($id_pengguna);
 		//$data['cek']			= $this->Web_model->cek($id_pengguna);
 		//$this->load->view('cek_pesan',$data);
 		$data['content']		= 'cek_pesan';
@@ -2024,7 +2202,7 @@ class Web extends CI_Controller {
 		$data['nvalid_t']		= $this->Web_model->nvalid_t($id_pengguna);
 		$data['valid_e']		= $this->Web_model->valid_e($id_pengguna);
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
-		$data['pengguna']		= $this->Web_model->daftar_pengguna();
+		$data['r_tacit']		= $this->Web_model->r_tacit($id_pengguna);			
 		$data['content']		= 'semua_notifikasi';
 		$this->load->view('template',$data);
 	}
@@ -2136,7 +2314,7 @@ class Web extends CI_Controller {
 		$data['login']			= $this->session->userdata('login', true);
 		if($data['login']==false) redirect(base_url('web/login'));
 		
-		$data['judul']			= "Data Bagian Mesin | KMS Dinas Ketahanan Pangan dan Peternakan Provinsi Sumsel";
+		$data['judul']			= "Data Bagian Lumbung | KMS Dinas Ketahanan Pangan dan Peternakan Provinsi Sumsel";
 		$id_pengguna			= $this->session->userdata('id_pengguna');
 		$data['pengguna']		= $this->Web_model->data_pengguna($id_pengguna);
 		$data['notif']			= $this->Web_model->notif($id_pengguna);
@@ -2146,12 +2324,12 @@ class Web extends CI_Controller {
 		$data['nvalid_e']		= $this->Web_model->nvalid_e($id_pengguna);
 		$data['kode_bagian']	= $this->Web_model->kode_bagian();
 		$data['bagian']			= $this->Web_model->bagian();
-		$data['content']		= 'data_bagian_mesin';
+		$data['content']		= 'data_bagian_lumbung';
 		$this->load->view('template',$data);
 	}
 
 	function submit_bagian()
-    {	
+	{	
 		$data=array();
 		$data['id_bagian']		= $this->input->post('id_bagian');
 		$data['nama_bagian']	= $this->input->post('nama_bagian');
@@ -2167,7 +2345,7 @@ class Web extends CI_Controller {
 			$this->Web_model->input_bagian($data);
 			redirect(base_url('web/data_bagian_lumbung'), 'refresh');
 		}
-    }
+	}
 
 	public function edit_bagian()
 	{
@@ -2190,7 +2368,7 @@ class Web extends CI_Controller {
 	}
 	
 	function update_bagian()
-    {	
+	{	
 		$data=array();
 		$id						= $this->input->post('id_bagian');
 		$data['nama_bagian']	= $this->input->post('nama_bagian');
@@ -2205,7 +2383,7 @@ class Web extends CI_Controller {
 			$this->Web_model->update_bagian($data,$id);
 			redirect(base_url('web/data_bagian_lumbung'), 'refresh');
 		}
-    }
+	}
 
 	function hapus_bagian()
 	{

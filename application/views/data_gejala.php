@@ -13,7 +13,7 @@ if(strlen($no) == '1'){
 }elseif(strlen($no) == '3'){
   $kd_gejala = "G".$no;
 }
-?>
+?> 
 <!-- Main content -->
         <section class="content">
           <div class="row">

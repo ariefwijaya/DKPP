@@ -275,29 +275,41 @@ public function get_all_explicit_user($id)
 	public function get_all_shared_tacit($id_pengguna)
 	{
 		$this->db->select('*');
+		$this->db->select('t.id_tacit as id_tacit');
+		$this->db->select('t.id_pengguna as id_pengguna');
 		$this->db->from('tag_tacit tt');
 		$this->db->join('pengetahuan_tacit t','tt.id_tacit=t.id_tacit','left');
-		$this->db->join('kategori k','t.id_kategori=k.id_kategori','left');
 		$this->db->join('pengguna p','t.id_pengguna=p.id_pengguna','left');
+		$this->db->join('kategori kt','kt.id_kategori=t.id_kategori','LEFT');
+		$this->db->join('komentar_tacit k','k.id_tacit=t.id_tacit','left');
 		$this->db->where('tt.id_pengguna',$id_pengguna);
-		$this->db->where('t.validasi_tacit', '1'); 
-		$q1=$this->db->get();
-	
-		return $q1;		
+		$this->db->where('t.validasi_tacit', '1'); 	
+		$this->db->order_by('t.id_tacit', 'DESC'); 
+		$this->db->group_by('t.id_tacit', 'DESC'); 
+		$q=$this->db->get();
+
+		return $q;		
 	}	
+
 	public function get_all_shared_explicit($id_pengguna)
 	{
 		$this->db->select('*');
+		$this->db->select('e.id_explicit as id_explicit');
+		$this->db->select('e.id_pengguna as id_pengguna');
 		$this->db->from('tag_explicit te');
 		$this->db->join('pengetahuan_explicit e','te.id_explicit=e.id_explicit','left');
-		$this->db->join('kategori k','t.id_kategori=k.id_kategori','left');
-		$this->db->join('pengguna p','t.id_pengguna=p.id_pengguna','left');
+		$this->db->join('pengguna p','e.id_pengguna=p.id_pengguna','left');
+		$this->db->join('kategori kt','kt.id_kategori=e.id_kategori','LEFT');
+		$this->db->join('komentar_explicit k','k.id_explicit=e.id_explicit','left');
 		$this->db->where('te.id_pengguna',$id_pengguna);
-		$this->db->where('e.validasi_explicit', '1'); 
-		$q1=$this->db->get();
-	
-		return $q1;		
+		$this->db->where('e.validasi_explicit', '1'); 	
+		$this->db->order_by('e.id_explicit', 'DESC'); 
+		$this->db->group_by('e.id_explicit', 'DESC'); 
+		$q=$this->db->get();
+
+		return $q;		
 	}	
+
 	function input_tag_tacit($data)
 	{
 		$q= $this->db->insert('tag_tacit', $data);
@@ -379,6 +391,21 @@ public function get_all_explicit_user($id)
 	{
 		$this->db->where('id_tacit', $id);
 		$this->db->update('pengetahuan_tacit', $data);
+	}
+	function insert_revise_tacit($data,$id)
+	{
+		$this->db->where('id_tacit', $id);
+		$this->db->insert('revise_tacit', $data);
+	}
+	function detail_revisi_tacit($id_pengguna,$id)
+	{
+		$this->db->select('*');
+		$this->db->from('revise_tacit rt');
+		$this->db->join('pengetahuan_tacit t','t.id_tacit=rt.id_tacit');
+		$this->db->where('t.id_pengguna',$id_pengguna);
+		$this->db->where('t.id_tacit', $id);
+		$q = $this->db->get();
+		return $q;
 	}
 	function hapus_tacit($id_tacit)
 	{
@@ -549,6 +576,36 @@ public function get_all_explicit_user($id)
 		$this->db->where('id_tacit',$id);
 		$this->db->delete('revise_tacit');
 	}
+	function input_request_gejala($data)
+	{
+		$q = $this->db->insert('request_gejala',$data);
+		return $q;
+	}
+	function request_gejala($id=null) 
+	{
+		$this->db->select('*'); 
+		$this->db->from('request_gejala r');
+		$this->db->join('pengguna p','p.id_pengguna=r.id_pengguna','left');
+		$this->db->join('bagian_lumbung b','b.id_bagian=r.id_bagian','left');
+		if($id!=null)
+		{
+			$this->db->where('r.id_request',$id);	
+		}
+		$this->db->order_by('r.id_request','DESC');
+		$q = $this->db->get();
+		return $q;
+	}
+	function update_status_gejala_baru($q,$id)
+	{
+		$this->db->update('status',$q);
+		$this->db->from('request_gejala');
+		$this->db->where('id_request',$id);
+	}
+	function insert_gejala_lama($data)
+	{
+		$q = $this->db->insert('gejala',$data);
+		return $q;
+	}
 	function kode_gejala()
 	{
 		$this->db->select('urut');
@@ -556,6 +613,11 @@ public function get_all_explicit_user($id)
 		$this->db->order_by('urut', 'DESC');
 		$this->db->limit('1');
 		$q = $this->db->get();
+		return $q;
+	}
+	function input_gejala_terima($data)
+	{
+		$q= $this->db->insert('gejala', $data);
 		return $q;
 	}
 	function input_gejala($data)
@@ -1130,6 +1192,7 @@ public function get_all_explicit_user($id)
 		$this->db->from('pengguna'); 
 		$this->db->where('id_pengguna',$id_pengguna);
 		$q = $this->db->get();
+		//print_r($this->db->last_query());
 		return $q;
 	}
 	function update_poin($p,$id_pengguna)
@@ -1286,6 +1349,26 @@ public function get_all_explicit_user($id)
 		$this->db->select('count(id_explicit) as v_e');
 		$this->db->from('pengetahuan_explicit');
 		$this->db->where('validasi_explicit','0');
+		$this->db->where('id_pengguna',$id_pengguna);
+		$q = $this->db->get();
+		return $q;
+	}
+	function r_tacit($id_pengguna)
+	{
+		$this->db->select('*');
+		$this->db->select('count(id_tacit) as r_t');
+		$this->db->from('pengetahuan_tacit');
+		$this->db->where('validasi_tacit','2');
+		$this->db->where('id_pengguna',$id_pengguna);
+		$q = $this->db->get();
+		return $q;
+	}
+	function r_explicit($id_pengguna)
+	{
+		$this->db->select('*');
+		$this->db->select('count(id_explicit) as r_e');
+		$this->db->from('pengetahuan_explicit');
+		$this->db->where('validasi_explicit','2');
 		$this->db->where('id_pengguna',$id_pengguna);
 		$q = $this->db->get();
 		return $q;
