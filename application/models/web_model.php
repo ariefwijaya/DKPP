@@ -597,8 +597,8 @@ public function get_all_explicit_user($id)
 	}
 	function update_status_gejala_baru($q,$id)
 	{
-		$this->db->update('status',$q);
-		$this->db->from('request_gejala');
+		$this->db->set('status',$q);
+		$this->db->update('request_gejala');
 		$this->db->where('id_request',$id);
 	}
 	function insert_gejala_lama($data)
@@ -606,6 +606,7 @@ public function get_all_explicit_user($id)
 		$q = $this->db->insert('gejala',$data);
 		return $q;
 	}
+	
 	function kode_gejala()
 	{
 		$this->db->select('urut');

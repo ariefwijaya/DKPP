@@ -1415,7 +1415,69 @@ class Web extends CI_Controller {
 		$kd_gejala;
 		$no;
 		$kode_gejala = $this->Web_model->kode_gejala();
+		$bobot_gejala = $this->input->post('bobot_gejala');
 		//ambil disini ja yeee
+		foreach($kode_gejala->result_array() as $rows)
+		{
+			$no = @$rows['urut'] + 1;
+			if(strlen($no) == '1'){
+			  $kd_gejala = "G00".$no;
+			}elseif(strlen($no) == '2'){
+			  $kd_gejala = "G0".$no;
+			}elseif(strlen($no) == '3'){
+			  $kd_gejala = "G".$no;
+			} 
+		}
+
+		$id_gejala = $this->Web_model->request_gejala($id);
+		$data = array();
+		foreach($id_gejala->result_array() as $request)
+		{ 
+
+			$data['id_gejala']		= $kd_gejala;
+			$data['nama_gejala']	= $request['nama_gejala']; 
+			$data['urut']			= $no;
+			$data['bobot_gejala']	= $bobot_gejala;
+			$data['id_bagian']		= $request['id_bagian'];
+		}
+
+		$this->Web_model->insert_gejala_lama($data);
+
+		$this->Web_model->update_status_gejala_baru(1,$id);
+		//echo json_encode($data);
+		 $data = array();
+         $data['status'] = TRUE;
+		echo json_encode($data);
+	}
+	
+	function mirip_gejala()
+	{
+		$data=array();
+		$data['id_gejala']		= $this->input->post('id_gejala');
+		$data['nama_gejala']	= $this->input->post('nama_gejala');
+		$data['urut']			= $this->input->post('urut');
+		$data['bobot_gejala']	= $this->input->post('bobot_gejala');
+		$data['id_bagian']		= $this->input->post('id_bagian');
+		$this->form_validation->set_rules('id_gejala','id gejala','required');
+		$this->form_validation->set_rules('nama_gejala','nama gejala','required');
+		$this->form_validation->set_rules('id_bagian','id bagian','required');
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->data_gejala();
+		}
+		else
+		{
+			$this->Web_model->input_gejala($data);
+			redirect(base_url('web/data_gejala'), 'refresh');
+		}
+	}
+
+	function ajax_mirip_gejala($id)
+	{
+		$kd_gejala;
+		$no;
+		$kode_gejala = $this->Web_model->kode_gejala();
+		
 		foreach($kode_gejala->result_array() as $rows)
 		{
 			$no = @$rows['urut'] + 1;
@@ -1442,13 +1504,13 @@ class Web extends CI_Controller {
 
 		$this->Web_model->insert_gejala_lama($data);
 
-		$this->Web_model->update_status_gejala_baru(1,$id);
+		$this->Web_model->update_status_gejala_baru('1',$id);
 		//echo json_encode($data);
 		 $data = array();
          $data['status'] = TRUE;
 		echo json_encode($data);
 	}
-	
+
 	public function data_kasus()
 	{
 		$data['login']			= $this->session->userdata('login', true);

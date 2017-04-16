@@ -23,6 +23,8 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <input type="hidden" id="id_gejala">
+                    <input type="hidden" id="bobot_gejala">
 					<?php
 
 					$no=1;
@@ -57,9 +59,16 @@
                         </td> 
                       <td width="19%">
                            <?php if($data['status']=="0"){?>
-                                <div class="btn btn-group">
+                                <div class="btn btn-group"> 
                                     <button onClick="terima_gejala(<?php echo $data['id_request'];?>)" class="btn btn-success" type="button"><i class="fa fa-check"></i></button>
+                                    
                                     <button class="btn btn-warning" type="button"><i class="fa fa-exchange"></i></button>
+
+                                    <!----------------- MODAL FOR TERIMA GEJALA MIRIP ---------------------------!-->
+
+
+
+                                    <!----------------- MODAL FOR TERIMA GEJALA MIRIP ---------------------------!-->                                    
                                     <button class="btn btn-danger" type="button"><i class="fa fa-close"></i></button>
                                 </div>
                           <?php }?>
@@ -75,6 +84,32 @@
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
+
+          <!---- -->
+          <div class="modal fade" id="modalTerima" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h3 class="modal-title" align="center">Gejala Diterima</h3>
+                </div>
+                <div class="modal-body">
+                  <form action="<?php echo base_url();?>web/submit_gejala" method="post" enctype="multipart/form-data">
+                  <p>Silahkan Input Bobot Gejala</p>
+                  <select name="bobot_gejala" id="bobot_baru" class="form-control">
+                  <option value="1">1 (Permasalahan Ringan)</option>
+                  <option value="3">3 (Permasalahan Sedang)</option>
+                  <option value="5">5 (Permasalahan Berat)</option>
+                  </select>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button onClick="submit_gejala()" type="button" class="btn btn-primary">Submit</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+          <!-- -->
         </section><!-- /.content -->
 <!-- jQuery -->
     
@@ -83,15 +118,26 @@
 	<script type="text/javascript">
    function terima_gejala(id)
       {
+        $("#id_gejala").val(id); //id dari request, diinput ke peubah bantu (input type hidden)
+        $("#modalTerima").modal('show');
+        
+      }
+
+      function submit_gejala() //saat submit diclick, langsung ambil data bobot yg dipilih, dan id yg disimpan tdi. 
+      {
+        var bobot_gejala = $("#bobot_baru").val();
+        var id = $("#id_gejala").val();
           $.ajax({
-              url : "<?php echo base_url('web/ajax_terima_gejala/')?>"+ id,  
+              url : "<?php echo base_url('web/ajax_terima_gejala')?>/"+ id,  
               type: "POST",
+              data: {bobot_gejala:bobot_gejala}, //ini taaulah pasti nis q sok kepinteran :"  okee lanjutt... enggaa mau tanya itu penulisan syntax bobot_gejala begitu kenapaa, yg disebelah kiri nama input->post('nah ini namanyo'), kalo yg sblah kanan isi nyo cuba yuk 
               dataType: "JSON",
               success: function(data)
               {   
                     if(data.status)
                     {
-                       alert("Berhasil dipindahkan");
+                       alert("Berhasil ditambahkan");
+                       location.reload();
                     }
                    
               },
@@ -101,11 +147,11 @@
                   console.log(errorThrown);
               }
           });
+
       }
 		jQuery(document).ready(function() 
 			{
 				jQuery("font.timeago").timeago();
-       
 
 			});
 	</script>
