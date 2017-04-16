@@ -606,7 +606,14 @@ public function get_all_explicit_user($id)
 		$q = $this->db->insert('gejala',$data);
 		return $q;
 	}
-	
+	function bobot_gejala_baru($id)
+	{
+		$this->db->select('bobot_gejala');
+		$this->db->from('gejala'); 
+		$this->db->where('id_gejala',$id);
+		$q = $this->db->get();
+		return $q;
+	}
 	function kode_gejala()
 	{
 		$this->db->select('urut');

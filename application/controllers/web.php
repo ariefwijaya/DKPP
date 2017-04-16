@@ -1415,7 +1415,7 @@ class Web extends CI_Controller {
 		$kd_gejala;
 		$no;
 		$kode_gejala = $this->Web_model->kode_gejala();
-		$bobot_gejala = $this->input->post('bobot_gejala');
+		$bobot_gejala = $this->input->post('bobot');
 		//ambil disini ja yeee
 		foreach($kode_gejala->result_array() as $rows)
 		{
@@ -1477,6 +1477,8 @@ class Web extends CI_Controller {
 		$kd_gejala;
 		$no;
 		$kode_gejala = $this->Web_model->kode_gejala();
+		$id_gejala_mirip = $this->input->post('gejala_mirip');
+		$bobot_gejala = $this->Web_model->bobot_gejala_baru($id_gejala_mirip);
 		
 		foreach($kode_gejala->result_array() as $rows)
 		{
@@ -1498,13 +1500,13 @@ class Web extends CI_Controller {
 			$data['id_gejala']		= $kd_gejala;
 			$data['nama_gejala']	= $request['nama_gejala']; 
 			$data['urut']			= $no;
-			$data['bobot_gejala']	= 0;
+			$data['bobot_gejala']	= $bobot_gejala;
 			$data['id_bagian']		= $request['id_bagian'];
 		}
 
 		$this->Web_model->insert_gejala_lama($data);
 
-		$this->Web_model->update_status_gejala_baru('1',$id);
+		$this->Web_model->update_status_gejala_baru('',$id);
 		//echo json_encode($data);
 		 $data = array();
          $data['status'] = TRUE;
